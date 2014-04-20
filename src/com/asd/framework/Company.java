@@ -1,4 +1,4 @@
-package com.asd.gui;
+package com.asd.framework;
 
 public class Company extends ACustomer implements ICompany {
 

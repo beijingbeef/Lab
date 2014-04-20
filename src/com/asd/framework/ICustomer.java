@@ -1,4 +1,4 @@
-package com.asd.gui;
+package com.asd.framework;
 
 public interface ICustomer {
 	public void addAccount(IAccount account);
