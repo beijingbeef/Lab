@@ -1,29 +1,33 @@
 package com.asd.framework;
 
-import java.util.GregorianCalendar;
+import java.util.Date;
 
 public class Entry implements IEntry {
-	private double ammount;
-	private GregorianCalendar date;
+	private double amount;
+	private Date date;
 
-	public Entry(double ammount, GregorianCalendar date) {
-		this.ammount = ammount;
+	public Entry(double amount) {
+		this(amount, new Date());
+	}
+
+	public Entry(double ammount, Date date) {
+		this.amount = ammount;
 		this.date = date;
 	}
 
 	public double getAmmount() {
-		return ammount;
+		return amount;
 	}
 
 	public void setAmmount(double ammount) {
-		this.ammount = ammount;
+		this.amount = ammount;
 	}
 
-	public GregorianCalendar getDate() {
+	public Date getDate() {
 		return date;
 	}
 
-	public void setDate(GregorianCalendar date) {
+	public void setDate(Date date) {
 		this.date = date;
 	}
 
