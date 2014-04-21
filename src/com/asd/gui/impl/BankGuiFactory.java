@@ -32,7 +32,9 @@ public class BankGuiFactory extends GUIFactory {
 	@Override
 	public PopDialog creatCustormerForm(Frame owner,String[] radios, String[] textfields) {
 		PopDialog p = new PopDialog(owner,true);
-		p.setRadio(radios);
+		if(null != radios){
+			p.setRadio(radios);
+		}
 		p.setTextfield(textfields);
 		return p;
 	}
@@ -41,7 +43,7 @@ public class BankGuiFactory extends GUIFactory {
 	public PopDialog createDepositForm(Frame owner) {
 		PopDialog p = new PopDialog(owner,true);
 		p.setTitle("Deposit");
-		String[] textfields = {"name","account"};
+		String[] textfields = {"Name","Amount"};
 		p.setTextfield(textfields);
 		return p;
 	}
@@ -50,7 +52,7 @@ public class BankGuiFactory extends GUIFactory {
 	public PopDialog createWithdrawForm(Frame owner) {
 		PopDialog p = new PopDialog(owner,true);
 		p.setTitle("Withdraw");
-		String[] textfields = {"name","account"};
+		String[] textfields = {"Name","Amount"};
 		p.setTextfield(textfields);
 		return p;
 	}

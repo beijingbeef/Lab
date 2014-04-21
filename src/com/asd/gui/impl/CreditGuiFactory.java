@@ -26,7 +26,7 @@ public class CreditGuiFactory extends GUIFactory {
 	public PopDialog createDepositForm(Frame owner) {
 		PopDialog p = new PopDialog(owner,true);
 		p.setTitle("Deposit");
-		String[] textfields = {"name","account"};
+		String[] textfields = {"Name","Amount"};
 		p.setTextfield(textfields);
 		return p;
 	}
@@ -35,7 +35,7 @@ public class CreditGuiFactory extends GUIFactory {
 	public PopDialog createWithdrawForm(Frame owner) {
 		PopDialog p = new PopDialog(owner,true);
 		p.setTitle("Withdraw");
-		String[] textfields = {"name","account"};
+		String[] textfields = {"Name","Amount"};
 		p.setTextfield(textfields);
 		return p;
 	}
