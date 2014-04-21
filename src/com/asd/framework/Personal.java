@@ -1,29 +1,20 @@
 package com.asd.framework;
 
 public class Personal extends ACustomer implements IPersonal {
+	private String dob;
 
 	public Personal(String name, String street, String city, String state,
-			int zip, String email) {
+			int zip, String dob, String email) {
 		super(name, street, city, state, zip, email);
+		this.dob = dob;
 	}
 
-	
-	
-	
-	
 	@Override
 	public void addCustomer(ICustomer customer) {
-		// TODO Auto-generated method stub
-		
 	}
 
 	@Override
 	public void removeCustomer(ICustomer customer) {
-		// TODO Auto-generated method stub
-		
 	}
-	
-	
-	
 
 }
