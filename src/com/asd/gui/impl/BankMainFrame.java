@@ -1,4 +1,4 @@
-package com.asd.test.gui;
+package com.asd.gui.impl;
 
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
@@ -10,17 +10,19 @@ import javax.swing.JPanel;
 import com.asd.gui.MainFrame;
 import com.asd.gui.PopDialog;
 
-public class MyTestFrame extends MainFrame {
-
-	private static final long serialVersionUID = 1410943831161094218L;
-
+public class BankMainFrame extends MainFrame {
 	
-	public MyTestFrame(String title, String button_1_name,
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -693371272789329727L;
+
+
+	public BankMainFrame(String title, String button_1_name,
 			String button_2_name, String button_3_name, String button_4_name) {
 		super(title, button_1_name, button_2_name, button_3_name, button_4_name);
 	}
-
-
+	
 	@Override
 	protected void do_btnNewButton_1_actionPerformed(ActionEvent e) {
 		String []rowValues = {"7","7","7"};
@@ -46,17 +48,16 @@ public class MyTestFrame extends MainFrame {
 		String []rowValues = {"9","9","9"};
 		updateRowData(0,rowValues);
 	}
-
-
+	
 	@Override
 	public JPanel getDIYComponentPanel() {
 		JPanel panel = new JPanel();
 		panel.setLayout(new FlowLayout());
 		
-		JButton btnNewButton = new JButton("Test Pop Dialog");
+		JButton btnNewButton = new JButton("Add Interest");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				haha_actionPerformed(e);
+				addInterest_actionPerformed(e);
 			}
 		});
 		
@@ -65,8 +66,7 @@ public class MyTestFrame extends MainFrame {
 		return panel;
 	}
 	
-	public void haha_actionPerformed(ActionEvent e){
-		
+	public void addInterest_actionPerformed(ActionEvent e){
 		PopDialog p = new PopDialog(this,true);
 		p.setTitle("title");
 		String[] radios = {"radio1","radio2","radio3"};
@@ -75,14 +75,6 @@ public class MyTestFrame extends MainFrame {
 		p.setTextfield(textfields);
 		p.showWindow();
 		System.out.println(p.getData());
-	
 	}
-	
-	
-	public static void main(String[] args) {
-		MainFrame frame = new MyTestFrame("default","add row","remove first row","change header","update 1st row");
-		frame.setVisible(true);
-	}
-	
-	
+
 }
