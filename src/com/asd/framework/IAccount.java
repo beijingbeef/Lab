@@ -20,4 +20,7 @@ public interface IAccount {
 	public double getNewMonthlyBalance();
 
 	public double getMonthlyAmountDue();
+	
+	public double setInterest();
+	public double getInterest();
 }

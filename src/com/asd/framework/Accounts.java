@@ -49,6 +49,20 @@ public class Accounts extends AAccount {
 		return 0;
 	}
 
+
+	@Override
+	public double getInterest() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+
+	@Override
+	public double setInterest() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 	
 	
 	

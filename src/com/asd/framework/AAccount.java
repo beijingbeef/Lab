@@ -8,6 +8,7 @@ public abstract class AAccount implements IAccount {
 	protected ArrayList<IEntry> entries;
 
 	public AAccount() {
+		
 		this.entries = new ArrayList<IEntry>();
 	}
 
@@ -16,6 +17,7 @@ public abstract class AAccount implements IAccount {
 	}
 
 	public void setCustomer(ICustomer customer) {
+		
 		this.customer = customer;
 	}
 

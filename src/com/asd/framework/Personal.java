@@ -7,4 +7,23 @@ public class Personal extends ACustomer implements IPersonal {
 		super(name, street, city, state, zip, email);
 	}
 
+	
+	
+	
+	
+	@Override
+	public void addCustomer(ICustomer customer) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void removeCustomer(ICustomer customer) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	
+	
+
 }

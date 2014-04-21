@@ -14,4 +14,19 @@ public class Customers extends ACustomer {
 		this.customers = new ArrayList<>();
 	}
 
+
+	@Override
+	public void addCustomer(ICustomer customer) {
+		
+		customers.add(customer);
+		
+	}
+
+
+	@Override
+	public void removeCustomer(ICustomer customer) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
