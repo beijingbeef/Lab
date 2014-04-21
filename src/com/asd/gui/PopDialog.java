@@ -25,6 +25,11 @@ import javax.swing.border.EmptyBorder;
 
 public class PopDialog extends JDialog {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -4498653702063530648L;
+
 	private final JPanel contentPanel = new JPanel();
 
 	private int height = 20;
@@ -32,6 +37,7 @@ public class PopDialog extends JDialog {
 	private int lableWidth = 100;
 	private int textfiledWidth = 200;
 	private ButtonGroup group = null;
+	
 
 	private String[] radios = {};
 
