@@ -197,6 +197,10 @@ public class MainFrame extends JFrame {
 		}
 		updateCellRenderer();
 	}
+	
+	public int getSelectedRow(){
+		return table.getSelectedRow();
+	}
 
 	//need to be override by sub-class
 	//button 1 click
