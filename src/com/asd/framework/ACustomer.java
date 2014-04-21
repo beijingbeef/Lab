@@ -81,7 +81,11 @@ public abstract class ACustomer implements ICustomer {
 
 	@Override
 	public void removeAccount(IAccount account) {
+	}
 
+	@Override
+	public IAccount getAccount() {
+		return this.accounts.getAccount(0);
 	}
 
 }

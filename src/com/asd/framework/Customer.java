@@ -47,4 +47,9 @@ public class Customer extends ACustomer {
 		return 0;
 	}
 
+	@Override
+	public IAccount getAccount() {
+		return null;
+	}
+
 }

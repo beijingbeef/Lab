@@ -51,4 +51,9 @@ public class Customers extends ACustomer {
 		return this.customers.size();
 	}
 
+	@Override
+	public IAccount getAccount() {
+		return null;
+	}
+
 }

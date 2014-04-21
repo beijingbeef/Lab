@@ -7,6 +7,8 @@ public interface ICustomer {
 
 	public ICustomer getCustomer(int index);
 
+	public IAccount getAccount();
+
 	public String getName();
 
 	public String getStreet();
