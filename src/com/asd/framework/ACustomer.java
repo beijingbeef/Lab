@@ -3,13 +3,15 @@ package com.asd.framework;
 import java.util.ArrayList;
 
 public abstract class ACustomer implements ICustomer {
+	
+	protected IAccount accounts;
+	
 	protected String name;
 	protected String street;
 	protected String city;
 	protected String state;
 	protected int zip;
 	protected String email;
-	protected ArrayList<IAccount> accounts;
 
 	public ACustomer(String name, String street, String city, String state,
 			int zip, String email) {
@@ -20,7 +22,8 @@ public abstract class ACustomer implements ICustomer {
 		this.state = state;
 		this.zip = zip;
 		this.email = email;
-		this.accounts = new ArrayList<IAccount>();
+		
+		this.accounts = new Accounts();
 	}
 
 	public String getName() {
@@ -73,12 +76,12 @@ public abstract class ACustomer implements ICustomer {
 
 	@Override
 	public void addAccount(IAccount account) {
-		this.accounts.add(account);
+		this.accounts.addAccount(account);
 	}
 
 	@Override
 	public void removeAccount(IAccount account) {
-		this.accounts.remove(account);
+		
 	}
 
 }

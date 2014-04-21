@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public abstract class AAccount implements IAccount {
 	protected ICustomer customer;
-	protected double balance;
+	protected double current_balance;
 	protected ArrayList<IEntry> entries;
 
 	public AAccount() {
@@ -26,7 +26,7 @@ public abstract class AAccount implements IAccount {
 
 	@Override
 	public double getCurrentBalance() {
-		return this.balance;
+		return this.current_balance;
 	}
 
 	@Override
