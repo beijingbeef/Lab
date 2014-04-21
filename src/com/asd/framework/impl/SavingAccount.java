@@ -53,4 +53,9 @@ public class SavingAccount extends AAccount {
 		return "S";
 	}
 
+	@Override
+	public IAccount getAccount(int index) {
+		return null;
+	}
+
 }

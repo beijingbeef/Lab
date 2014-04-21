@@ -32,4 +32,9 @@ public class Company extends ACustomer implements ICompany {
 		return "C";
 	}
 
+	@Override
+	public ICustomer getCustomer(int index) {
+		return null;
+	}
+
 }

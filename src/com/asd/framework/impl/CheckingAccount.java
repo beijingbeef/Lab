@@ -53,4 +53,9 @@ public class CheckingAccount extends AAccount {
 		return "Ch";
 	}
 
+	@Override
+	public IAccount getAccount(int index) {
+		return null;
+	}
+
 }

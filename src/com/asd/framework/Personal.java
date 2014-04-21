@@ -32,4 +32,9 @@ public class Personal extends ACustomer implements IPersonal {
 		return "P";
 	}
 
+	@Override
+	public ICustomer getCustomer(int index) {
+		return null;
+	}
+
 }

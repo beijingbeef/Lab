@@ -37,4 +37,9 @@ public class Customer extends ACustomer {
 		return null;
 	}
 
+	@Override
+	public ICustomer getCustomer(int index) {
+		return null;
+	}
+
 }

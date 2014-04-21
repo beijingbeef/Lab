@@ -15,9 +15,7 @@ public class Customers extends ACustomer {
 
 	@Override
 	public void addCustomer(ICustomer customer) {
-
 		customers.add(customer);
-
 	}
 
 	@Override
@@ -38,6 +36,11 @@ public class Customers extends ACustomer {
 	@Override
 	public String getType() {
 		return null;
+	}
+
+	@Override
+	public ICustomer getCustomer(int index) {
+		return this.customers.get(index);
 	}
 
 }

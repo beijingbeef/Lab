@@ -5,6 +5,8 @@ public interface ICustomer {
 
 	public void removeAccount(IAccount account);
 
+	public ICustomer getCustomer(int index);
+
 	public String getName();
 
 	public String getStreet();

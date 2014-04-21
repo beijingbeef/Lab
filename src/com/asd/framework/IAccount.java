@@ -12,6 +12,8 @@ public interface IAccount {
 
 	public String getType();
 
+	public IAccount getAccount(int index);
+
 	public double getCurrentBalance();
 
 	public double getLastMonthBalance();

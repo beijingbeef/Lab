@@ -62,4 +62,9 @@ public class Accounts extends AAccount {
 		return null;
 	}
 
+	@Override
+	public IAccount getAccount(int index) {
+		return this.accounts.get(index);
+	}
+
 }
