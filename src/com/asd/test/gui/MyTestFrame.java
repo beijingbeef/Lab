@@ -70,7 +70,7 @@ public class MyTestFrame extends MainFrame {
 		PopDialog p = new PopDialog(this,true);
 		String[] radios = {"radio1","radio2","radio3"};
 		p.setRadio(radios);
-		String[] textfields = {"name","city","zip"};
+		String[] textfields = {"name","deposit"};
 		p.setTextfield(textfields);
 		p.showWindow();
 		System.out.println(p.getData());
