@@ -87,12 +87,4 @@ public abstract class ACustomer implements ICustomer {
 	public IAccount getAccount() {
 		return this.accounts.getAccount(0);
 	}
-
-	@Override
-	public ICustomer getCustomer(String name) {
-		if (this.name.equals(name)) {
-			return this;
-		}
-		return null;
-	}
 }

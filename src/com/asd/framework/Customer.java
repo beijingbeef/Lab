@@ -52,4 +52,12 @@ public class Customer extends ACustomer {
 		return null;
 	}
 
+	@Override
+	public ICustomer getCustomer(String name) {
+		if (this.name.equals(name)) {
+			return this;
+		}
+		return null;
+	}
+
 }

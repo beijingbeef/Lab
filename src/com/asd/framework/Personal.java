@@ -44,6 +44,9 @@ public class Personal extends ACustomer implements IPersonal {
 
 	@Override
 	public ICustomer getCustomer(String name) {
+		if (this.name.equals(name)) {
+			return this;
+		}
 		return null;
 	}
 

@@ -44,6 +44,9 @@ public class Company extends ACustomer implements ICompany {
 
 	@Override
 	public ICustomer getCustomer(String name) {
+		if (this.name.equals(name)) {
+			return this;
+		}
 		return null;
 	}
 
