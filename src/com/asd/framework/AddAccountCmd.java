@@ -1,17 +1,17 @@
 package com.asd.framework;
 
 public class AddAccountCmd implements ICommand {
-	private Accounts accounts;
+	private ICustomer customer;
 	private IAccount account;
 
-	public AddAccountCmd(Accounts cs, IAccount c) {
-		this.accounts = cs;
-		this.account = c;
+	public AddAccountCmd(ICustomer customer, IAccount account) {
+		this.customer = customer;
+		this.account = account;
 	}
 
 	@Override
 	public void execute() {
-		this.accounts.addCustomer(this.account);
+		this.customer.addAccount(account);
 	}
 
 }
