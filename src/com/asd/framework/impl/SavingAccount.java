@@ -6,7 +6,7 @@ import com.asd.framework.IAccount;
 import com.asd.framework.TransactionType;
 
 public class SavingAccount extends AAccount {
-	private double interest_rate;
+	private double interest_rate = 0;
 
 	@Override
 	public void addAccount(IAccount account) {
