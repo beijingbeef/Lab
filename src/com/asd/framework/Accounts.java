@@ -3,26 +3,21 @@ package com.asd.framework;
 import java.util.ArrayList;
 
 public class Accounts extends AAccount {
-	
+
 	protected ArrayList<IAccount> accounts;
-	
-	public Accounts()
-	{
+
+	public Accounts() {
 		accounts = new ArrayList<>();
 	}
-	
-	
-	public void addAccount(IAccount account)
-	{
+
+	public void addAccount(IAccount account) {
 		accounts.add(account);
 	}
-	
-	
 
 	@Override
 	public void addInterest() {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
@@ -49,27 +44,16 @@ public class Accounts extends AAccount {
 		return 0;
 	}
 
-
 	@Override
 	public double getInterest() {
 		// TODO Auto-generated method stub
 		return 0;
 	}
 
-
 	@Override
-	public double setInterest() {
+	public void setInterest(double rate) {
 		// TODO Auto-generated method stub
-		return 0;
+
 	}
-
-	
-	
-	
-	
-	
-	
-
-
 
 }

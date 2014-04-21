@@ -9,9 +9,7 @@ public class AddInterestCmd implements ICommand {
 
 	@Override
 	public void execute() {
-		double interest = this.account.getCurrentBalance()
-				* this.account.getInterest();
-		this.account.addEntry(new Entry(TransactionType.interest, interest));
+		this.account.addInterest();
 	}
 
 }

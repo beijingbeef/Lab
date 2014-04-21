@@ -8,7 +8,7 @@ public abstract class AAccount implements IAccount {
 	protected ArrayList<IEntry> entries;
 
 	public AAccount() {
-		
+
 		this.entries = new ArrayList<>();
 	}
 
@@ -17,12 +17,13 @@ public abstract class AAccount implements IAccount {
 	}
 
 	public void setCustomer(ICustomer customer) {
-		
+
 		this.customer = customer;
 	}
 
 	@Override
 	public void addEntry(IEntry entry) {
+		this.current_balance += entry.getAmount();
 		this.entries.add(entry);
 	}
 
