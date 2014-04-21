@@ -56,4 +56,10 @@ public class Accounts extends AAccount {
 
 	}
 
+	@Override
+	public String getType() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

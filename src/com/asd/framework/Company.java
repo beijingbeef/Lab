@@ -17,4 +17,19 @@ public class Company extends ACustomer implements ICompany {
 	public void removeCustomer(ICustomer customer) {
 	}
 
+	@Override
+	public String getDob() {
+		return null;
+	}
+
+	@Override
+	public int getNumberOfEmployee() {
+		return this.nr_of_employee;
+	}
+
+	@Override
+	public String getType() {
+		return "C";
+	}
+
 }

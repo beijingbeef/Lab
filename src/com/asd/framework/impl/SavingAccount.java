@@ -48,4 +48,9 @@ public class SavingAccount extends AAccount {
 		return 0;
 	}
 
+	@Override
+	public String getType() {
+		return "S";
+	}
+
 }

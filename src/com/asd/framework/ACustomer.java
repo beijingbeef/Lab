@@ -1,11 +1,8 @@
 package com.asd.framework;
 
-import java.util.ArrayList;
-
 public abstract class ACustomer implements ICustomer {
-	
 	protected IAccount accounts;
-	
+
 	protected String name;
 	protected String street;
 	protected String city;
@@ -22,7 +19,7 @@ public abstract class ACustomer implements ICustomer {
 		this.state = state;
 		this.zip = zip;
 		this.email = email;
-		
+
 		this.accounts = new Accounts();
 	}
 
@@ -81,7 +78,7 @@ public abstract class ACustomer implements ICustomer {
 
 	@Override
 	public void removeAccount(IAccount account) {
-		
+
 	}
 
 }

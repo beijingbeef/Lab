@@ -10,6 +10,8 @@ public interface IAccount {
 
 	public void addInterest();
 
+	public String getType();
+
 	public double getCurrentBalance();
 
 	public double getLastMonthBalance();

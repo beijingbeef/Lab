@@ -17,4 +17,19 @@ public class Personal extends ACustomer implements IPersonal {
 	public void removeCustomer(ICustomer customer) {
 	}
 
+	@Override
+	public String getDob() {
+		return this.dob;
+	}
+
+	@Override
+	public int getNumberOfEmployee() {
+		return 0;
+	}
+
+	@Override
+	public String getType() {
+		return "P";
+	}
+
 }
