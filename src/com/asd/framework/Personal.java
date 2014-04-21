@@ -37,4 +37,9 @@ public class Personal extends ACustomer implements IPersonal {
 		return null;
 	}
 
+	@Override
+	public int getSize() {
+		return 0;
+	}
+
 }

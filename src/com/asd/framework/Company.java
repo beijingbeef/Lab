@@ -37,4 +37,9 @@ public class Company extends ACustomer implements ICompany {
 		return null;
 	}
 
+	@Override
+	public int getSize() {
+		return 0;
+	}
+
 }

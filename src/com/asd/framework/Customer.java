@@ -42,4 +42,9 @@ public class Customer extends ACustomer {
 		return null;
 	}
 
+	@Override
+	public int getSize() {
+		return 0;
+	}
+
 }

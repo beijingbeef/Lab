@@ -10,6 +10,9 @@ public abstract class ACustomer implements ICustomer {
 	protected int zip;
 	protected String email;
 
+	public ACustomer() {
+	}
+
 	public ACustomer(String name, String street, String city, String state,
 			int zip, String email) {
 		super();

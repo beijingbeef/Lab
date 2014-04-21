@@ -25,6 +25,8 @@ public interface ICustomer {
 
 	public String getType();
 
+	public int getSize();
+
 	public void addCustomer(ICustomer customer);
 
 	public void removeCustomer(ICustomer customer);
