@@ -94,6 +94,9 @@ public class PopDialog extends JDialog {
 			rdbtnNewRadioButton.setPreferredSize(radioPreferredSize);
 			panel.add(rdbtnNewRadioButton);
 			group.add(rdbtnNewRadioButton);
+			if( 0 == i ){
+				rdbtnNewRadioButton.setSelected(true);
+			}
 		}
 			
 		

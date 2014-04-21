@@ -8,9 +8,24 @@ import com.asd.gui.PopDialog;
 
 public class BankGuiFactory extends GUIFactory {
 
+	private static BankGuiFactory instance = null;
+	
+	public static BankGuiFactory createInstance(){
+		if( null == instance ){
+			instance = new BankGuiFactory();
+		}
+		return instance;
+	}
+	
+	private BankGuiFactory() {
+		super();
+	}
+
 	@Override
 	public MainFrame createMainFrame() {
 		MainFrame frame = new BankMainFrame("Bank Application","Add personal account","Add company account","Deposit","Withdraw");
+		String[] header = {"Name","Street","City","State","Zip","P/C","Ch/S","Amount"};
+		frame.setTableHeader(header);
 		return frame;
 	}
 

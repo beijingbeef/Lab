@@ -7,6 +7,7 @@ public class Customers extends ACustomer {
 	protected ArrayList<ICustomer> customers;
 
 	public Customers() {
+		this(null,null,null,null,0,null);
 	}
 
 	public Customers(String name, String street, String city, String state,
