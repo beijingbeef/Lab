@@ -11,7 +11,7 @@ public class WithdrawCmd implements ICommand {
 
 	@Override
 	public void execute() {
-		this.account.addEntry(new Entry(this.amount * -1));
+		this.account.addEntry(new Entry(TransactionType.withdraw, this.amount * -1));
 	}
 
 }

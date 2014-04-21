@@ -11,7 +11,7 @@ public class AddInterestCmd implements ICommand {
 	public void execute() {
 		double interest = this.account.getCurrentBalance()
 				* this.account.getInterest();
-		this.account.addEntry(new Entry(interest));
+		this.account.addEntry(new Entry(TransactionType.interest, interest));
 	}
 
 }

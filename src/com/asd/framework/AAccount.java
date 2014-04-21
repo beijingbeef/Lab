@@ -9,7 +9,7 @@ public abstract class AAccount implements IAccount {
 
 	public AAccount() {
 		
-		this.entries = new ArrayList<IEntry>();
+		this.entries = new ArrayList<>();
 	}
 
 	public ICustomer getCustomer() {

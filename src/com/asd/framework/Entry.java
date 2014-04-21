@@ -7,12 +7,13 @@ public class Entry implements IEntry {
 	private Date date;
 	private TransactionType type;
 
-	public Entry(double amount) {
-		this(amount, new Date());
+	public Entry(TransactionType type, double amount) {
+		this(type, amount, new Date());
 	}
 
-	public Entry(double ammount, Date date) {
-		this.amount = ammount;
+	public Entry(TransactionType type, double amount, Date date) {
+		this.type = type;
+		this.amount = amount;
 		this.date = date;
 	}
 
