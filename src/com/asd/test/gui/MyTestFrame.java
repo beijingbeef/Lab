@@ -5,10 +5,10 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 import com.asd.gui.MainFrame;
+import com.asd.gui.PopDialog;
 
 public class MyTestFrame extends MainFrame {
 
@@ -53,7 +53,7 @@ public class MyTestFrame extends MainFrame {
 		JPanel panel = new JPanel();
 		panel.setLayout(new FlowLayout());
 		
-		JButton btnNewButton = new JButton("haha");
+		JButton btnNewButton = new JButton("Test Pop Dialog");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				haha_actionPerformed(e);
@@ -66,7 +66,15 @@ public class MyTestFrame extends MainFrame {
 	}
 	
 	public void haha_actionPerformed(ActionEvent e){
-		JOptionPane.showMessageDialog(null, "haha clicked", "warning", JOptionPane.ERROR_MESSAGE);
+		
+		PopDialog p = new PopDialog(this,true);
+		String[] radios = {"radio1","radio2","radio3"};
+		p.setRadio(radios);
+		String[] textfields = {"name","city","zip"};
+		p.setTextfield(textfields);
+		p.showWindow();
+		System.out.println(p.getData());
+	
 	}
 	
 	
