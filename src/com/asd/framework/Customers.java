@@ -7,7 +7,7 @@ public class Customers extends ACustomer {
 	protected ArrayList<ICustomer> customers;
 
 	public Customers() {
-		this(null,null,null,null,0,null);
+		this(null, null, null, null, 0, null);
 	}
 
 	public Customers(String name, String street, String city, String state,
@@ -54,6 +54,17 @@ public class Customers extends ACustomer {
 
 	@Override
 	public IAccount getAccount() {
+		return null;
+	}
+
+	@Override
+	public ICustomer getCustomer(String name) {
+		for (ICustomer c : this.customers) {
+			if (c.getCustomer(name) != null) {
+				return c;
+			}
+		}
+
 		return null;
 	}
 

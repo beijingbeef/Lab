@@ -42,4 +42,9 @@ public class Company extends ACustomer implements ICompany {
 		return 0;
 	}
 
+	@Override
+	public ICustomer getCustomer(String name) {
+		return null;
+	}
+
 }

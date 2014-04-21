@@ -42,4 +42,9 @@ public class Personal extends ACustomer implements IPersonal {
 		return 0;
 	}
 
+	@Override
+	public ICustomer getCustomer(String name) {
+		return null;
+	}
+
 }

@@ -7,6 +7,8 @@ public interface ICustomer {
 
 	public ICustomer getCustomer(int index);
 
+	public ICustomer getCustomer(String name);
+
 	public IAccount getAccount();
 
 	public String getName();
