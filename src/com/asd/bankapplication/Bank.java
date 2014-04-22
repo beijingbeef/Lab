@@ -1,8 +1,8 @@
-package com.asd.application;
+package com.asd.bankapplication;
 
+import com.asd.bankapplication.gui.BankGuiFactory;
 import com.asd.gui.GUIFactory;
 import com.asd.gui.MainFrame;
-import com.asd.gui.impl.BankGuiFactory;
 
 public class Bank {
 

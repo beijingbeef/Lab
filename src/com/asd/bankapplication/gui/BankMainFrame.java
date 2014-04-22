@@ -1,4 +1,4 @@
-package com.asd.gui.impl;
+package com.asd.bankapplication.gui;
 
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
