@@ -156,7 +156,6 @@ public class MainFrame extends JFrame {
 				Object value, boolean isSelected, boolean cellHasFocus,
 				int row, int column) {
 			
-			System.out.println("row " + row + "column" + column);
 			JComponent comp = (JComponent) super.getTableCellRendererComponent(
 					table, value, isSelected, cellHasFocus, row, column);
 			if (row % 2 == 0) {
