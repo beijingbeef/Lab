@@ -136,6 +136,7 @@ public class BankMainFrame extends MainFrame {
 		System.out.println(data);
 		if( null == customer ){
 			System.out.println(name + " not exits!");
+			return;
 		}
 		
 		ICommand cmd = new DepositCmd(customer.getAccount(), Double.parseDouble(amount));
@@ -168,6 +169,7 @@ public class BankMainFrame extends MainFrame {
 		System.out.println(data);
 		if( null == customer ){
 			System.out.println(name + " not exits!");
+			return;
 		}
 		
 		ICommand cmd = new WithdrawCmd(customer.getAccount(), Double.parseDouble(amount));
