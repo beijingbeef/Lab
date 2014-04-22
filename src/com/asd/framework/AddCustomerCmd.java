@@ -1,10 +1,10 @@
 package com.asd.framework;
 
 public class AddCustomerCmd implements ICommand {
-	private Customers customers;
+	private ICustomer customers;
 	private ICustomer customer;
 
-	public AddCustomerCmd(Customers cs, ICustomer c) {
+	public AddCustomerCmd(ICustomer cs, ICustomer c) {
 		this.customers = cs;
 		this.customer = c;
 	}
