@@ -45,4 +45,9 @@ public class Company extends ACustomer implements ICompany {
 		return null;
 	}
 
+	@Override
+	public void sendEmailToCustomer(double amount) {
+		System.out.println(String.format("Email to %s", getName()));
+	}
+
 }

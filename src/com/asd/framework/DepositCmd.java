@@ -12,6 +12,7 @@ public class DepositCmd implements ICommand {
 	@Override
 	public void execute() {
 		this.account.addEntry(new Entry(TransactionType.deposit, this.amount));
+		this.account.notifyCustomer(this.amount);
 	}
 
 }

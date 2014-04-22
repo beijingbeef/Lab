@@ -11,7 +11,7 @@ public class AddAccountCmd implements ICommand {
 
 	@Override
 	public void execute() {
-		this.customer.setAccount(account);
+		this.customer.addAccount(account);
 	}
 
 }

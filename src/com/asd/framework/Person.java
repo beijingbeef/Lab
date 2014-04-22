@@ -45,4 +45,11 @@ public class Person extends ACustomer implements IPerson {
 		return null;
 	}
 
+	@Override
+	public void sendEmailToCustomer(double amount) {
+		if (amount > 500 || getAccount().getCurrentBalance() < 0) {
+			System.out.println(String.format("Email to %s", getName()));
+		}
+	}
+
 }

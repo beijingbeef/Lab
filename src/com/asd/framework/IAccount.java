@@ -2,9 +2,11 @@ package com.asd.framework;
 
 public interface IAccount {
 
+	public void addAccount(IAccount account);
+
 	public void addEntry(IEntry entry);
 
-	public void notifyCustomer();
+	public void notifyCustomer(double amount);
 
 	public void addInterest();
 
@@ -27,8 +29,6 @@ public interface IAccount {
 	public double getNewMonthlyBalance();
 
 	public double getMonthlyAmountDue();
-
-	public void setInterest(double rate);
 
 	public double getInterest();
 

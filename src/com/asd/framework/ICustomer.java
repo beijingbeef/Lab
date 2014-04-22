@@ -1,7 +1,7 @@
 package com.asd.framework;
 
 public interface ICustomer {
-	public void setAccount(IAccount account);
+	public void addAccount(IAccount account);
 
 	public ICustomer getCustomer(int index);
 
@@ -28,4 +28,6 @@ public interface ICustomer {
 	public void addCustomer(ICustomer customer);
 
 	public void removeCustomer(ICustomer customer);
+
+	public void sendEmailToCustomer(double amount);
 }

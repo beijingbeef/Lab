@@ -6,10 +6,10 @@ public abstract class AAccount implements IAccount {
 	protected ICustomer customer;
 	protected String ccnumber;
 	protected double current_balance;
-	protected ArrayList<IEntry> entries;
+	protected ArrayList<IEntry> entries = new ArrayList<>();
 
-	public AAccount() {
-		this.entries = new ArrayList<>();
+	@Override
+	public void addAccount(IAccount account) {
 	}
 
 	@Override
@@ -34,7 +34,8 @@ public abstract class AAccount implements IAccount {
 	}
 
 	@Override
-	public void notifyCustomer() {
+	public void notifyCustomer(double amount) {
+		getCustomer().sendEmailToCustomer(amount);
 	}
 
 	@Override

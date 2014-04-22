@@ -6,14 +6,13 @@ import com.asd.framework.AAccount;
 import com.asd.framework.IAccount;
 import com.asd.framework.ICustomer;
 import com.asd.framework.IEntry;
+import com.asd.framework.TransactionType;
 
 public abstract class ACCardAccount extends AAccount {
-	protected double last_month_balance = 0;
+	protected double monthly_interest = 0.0;
+	protected double minimum_payment_rate = 0.0;
+	protected double last_month_balance = 0.0;
 	protected Date expire_date;
-
-	public ACCardAccount() {
-		super();
-	}
 
 	public ACCardAccount(String ccnumber, Date expDate) {
 		this.ccnumber = ccnumber;
@@ -39,12 +38,8 @@ public abstract class ACCardAccount extends AAccount {
 	}
 
 	@Override
-	public void setInterest(double rate) {
-	}
-
-	@Override
 	public double getInterest() {
-		return 0;
+		return monthly_interest;
 	}
 
 	@Override
@@ -58,20 +53,11 @@ public abstract class ACCardAccount extends AAccount {
 
 	@Override
 	public double getTotalMonthlyCredit() {
-		return 0;
-	}
-
-	@Override
-	public double getTotalMonthlyCharge() {
-		return 0;
-	}
-
-	@Override
-	public double getNewMonthlyBalance() {
 		Date now = new Date();
 		double total = 0;
 		for (IEntry e : this.entries) {
-			if (e.getDate().getMonth() == now.getMonth()) {
+			if (e.getDate().getMonth() == now.getMonth()
+					&& e.getTransactionType() == TransactionType.deposit) {
 				total += e.getAmount();
 			}
 		}
@@ -79,8 +65,32 @@ public abstract class ACCardAccount extends AAccount {
 	}
 
 	@Override
+	public double getTotalMonthlyCharge() {
+		Date now = new Date();
+		double total = 0;
+		for (IEntry e : this.entries) {
+			if (e.getDate().getMonth() == now.getMonth()
+					&& e.getTransactionType() == TransactionType.withdraw) {
+				total += e.getAmount();
+			}
+		}
+		return total;
+	}
+
+	@Override
+	public double getNewMonthlyBalance() {
+		double lastBal = getLastMonthBalance();
+		double totalCredit = getTotalMonthlyCredit();
+		double totalCharge = getTotalMonthlyCharge();
+		double newBal = lastBal - totalCredit + totalCharge
+				+ (this.monthly_interest * (lastBal - totalCredit));
+
+		return newBal;
+	}
+
+	@Override
 	public double getMonthlyAmountDue() {
-		return 0;
+		return this.minimum_payment_rate * getNewMonthlyBalance();
 	}
 
 	@Override

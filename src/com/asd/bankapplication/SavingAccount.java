@@ -9,11 +9,6 @@ public class SavingAccount extends AAccount {
 	private double interest_rate = 0;
 
 	@Override
-	public void setInterest(double rate) {
-		this.interest_rate = rate;
-	}
-
-	@Override
 	public double getInterest() {
 		return this.interest_rate;
 	}

@@ -4,13 +4,10 @@ import java.util.ArrayList;
 
 public class Accounts extends AAccount {
 
-	protected ArrayList<IAccount> accounts;
+	protected ArrayList<IAccount> accounts = new ArrayList<>();
 
-	public Accounts() {
-		accounts = new ArrayList<>();
-	}
-
-	public void setAccount(IAccount account) {
+	@Override
+	public void addAccount(IAccount account) {
 		accounts.add(account);
 	}
 
@@ -46,10 +43,6 @@ public class Accounts extends AAccount {
 	@Override
 	public double getInterest() {
 		return 0;
-	}
-
-	@Override
-	public void setInterest(double rate) {
 	}
 
 	@Override
