@@ -74,7 +74,7 @@ public abstract class CCardAccount extends AAccount {
 	}
 
 	@Override
-	public String toString() {
+	public String generateMonthlyBills() {
 		ICustomer c = getCustomer();
 		StringBuilder strBuilder = new StringBuilder();
 		strBuilder.append(String.format("Name= %s\n", c.getName()));

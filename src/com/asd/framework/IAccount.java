@@ -33,4 +33,6 @@ public interface IAccount {
 	public void setInterest(double rate);
 
 	public double getInterest();
+
+	public String generateMonthlyBills();
 }

@@ -42,6 +42,11 @@ public abstract class AAccount implements IAccount {
 	public void notifyCustomer() {
 		// need implementation
 	}
+	
+	@Override
+	public String generateMonthlyBills() {
+		return null;
+	}
 
 	@Override
 	public abstract void addInterest();
