@@ -8,6 +8,19 @@ import com.asd.gui.PopDialog;
 
 public class CreditGuiFactory extends GUIFactory {
 
+	private static CreditGuiFactory instance = null;
+	
+	public static CreditGuiFactory createInstance(){
+		if ( null == instance ){
+			instance = new CreditGuiFactory();
+		}
+		return instance;
+	}
+	
+	private CreditGuiFactory(){
+		
+	}
+	
 	@Override
 	public MainFrame createMainFrame() {
 		MainFrame frame = new CreditMainFrame("Credit-card processing Application","Add Credit-card account","Generate Monthly bills","Deposit","Withdraw");
