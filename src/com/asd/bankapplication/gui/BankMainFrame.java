@@ -19,7 +19,7 @@ import com.asd.framework.DepositCmd;
 import com.asd.framework.IAccount;
 import com.asd.framework.ICommand;
 import com.asd.framework.ICustomer;
-import com.asd.framework.Personal;
+import com.asd.framework.Person;
 import com.asd.framework.WithdrawCmd;
 import com.asd.gui.MainFrame;
 import com.asd.gui.PopDialog;
@@ -66,7 +66,7 @@ public class BankMainFrame extends MainFrame {
 		String birthdaty = data.get("Birthday");
 		String email = data.get("Email");
 
-		ICustomer customer = new Personal(name, street, city, state,
+		ICustomer customer = new Person(name, street, city, state,
 				Integer.parseInt(zip), birthdaty, email);
 
 		ICommand cmd = new AddCustomerCmd(customers, customer);

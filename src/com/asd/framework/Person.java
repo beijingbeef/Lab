@@ -1,9 +1,9 @@
 package com.asd.framework;
 
-public class Personal extends ACustomer implements IPersonal {
+public class Person extends ACustomer implements IPerson {
 	private String dob;
 
-	public Personal(String name, String street, String city, String state,
+	public Person(String name, String street, String city, String state,
 			int zip, String dob, String email) {
 		super(name, street, city, state, zip, email);
 		this.dob = dob;
@@ -20,11 +20,6 @@ public class Personal extends ACustomer implements IPersonal {
 	@Override
 	public String getDob() {
 		return this.dob;
-	}
-
-	@Override
-	public int getNumberOfEmployee() {
-		return 0;
 	}
 
 	@Override

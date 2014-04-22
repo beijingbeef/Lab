@@ -9,10 +9,6 @@ public class CheckingAccount extends AAccount {
 	private double interest_rate = 0;
 
 	@Override
-	public void addAccount(IAccount account) {
-	}
-
-	@Override
 	public void setInterest(double rate) {
 		this.interest_rate = rate;
 	}
@@ -26,6 +22,11 @@ public class CheckingAccount extends AAccount {
 	public void addInterest() {
 		double interest = getCurrentBalance() * getInterest();
 		addEntry(new Entry(TransactionType.interest, interest));
+	}
+
+	@Override
+	public double getLastMonthBalance() {
+		return 0;
 	}
 
 	@Override

@@ -34,15 +34,9 @@ public abstract class AAccount implements IAccount {
 	}
 
 	@Override
-	public double getLastMonthBalance() {
-		return 0; // need implementation
+	public void notifyCustomer() {
 	}
 
-	@Override
-	public void notifyCustomer() {
-		// need implementation
-	}
-	
 	@Override
 	public String generateMonthlyBills() {
 		return null;
@@ -53,6 +47,9 @@ public abstract class AAccount implements IAccount {
 
 	@Override
 	public abstract String getType();
+
+	@Override
+	public abstract double getLastMonthBalance();
 
 	@Override
 	public abstract double getTotalMonthlyCredit();

@@ -5,9 +5,11 @@ import java.util.Date;
 import com.asd.framework.AAccount;
 import com.asd.framework.IAccount;
 import com.asd.framework.ICustomer;
+import com.asd.framework.IEntry;
 
 public abstract class ACCardAccount extends AAccount {
-	private Date expire_date;
+	protected double last_month_balance = 0;
+	protected Date expire_date;
 
 	public ACCardAccount() {
 		super();
@@ -24,10 +26,6 @@ public abstract class ACCardAccount extends AAccount {
 
 	public Date getExpire_date() {
 		return expire_date;
-	}
-
-	@Override
-	public void addAccount(IAccount account) {
 	}
 
 	@Override
@@ -54,6 +52,11 @@ public abstract class ACCardAccount extends AAccount {
 	}
 
 	@Override
+	public double getLastMonthBalance() {
+		return this.last_month_balance;
+	}
+
+	@Override
 	public double getTotalMonthlyCredit() {
 		return 0;
 	}
@@ -65,7 +68,14 @@ public abstract class ACCardAccount extends AAccount {
 
 	@Override
 	public double getNewMonthlyBalance() {
-		return 0;
+		Date now = new Date();
+		double total = 0;
+		for (IEntry e : this.entries) {
+			if (e.getDate().getMonth() == now.getMonth()) {
+				total += e.getAmount();
+			}
+		}
+		return total;
 	}
 
 	@Override
@@ -92,6 +102,9 @@ public abstract class ACCardAccount extends AAccount {
 				getCurrentBalance()));
 		strBuilder.append(String.format("Total amount due= %.2f\n",
 				getMonthlyAmountDue()));
+
+		this.last_month_balance = getNewMonthlyBalance();
+
 		return strBuilder.toString();
 	}
 }

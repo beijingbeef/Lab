@@ -1,5 +1,5 @@
 package com.asd.framework;
 
-public interface ICompany {
-
+public interface ICompany extends ICustomer {
+	public int getNumberOfEmployee();
 }

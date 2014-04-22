@@ -1,7 +1,7 @@
 package com.asd.framework;
 
 public abstract class ACustomer implements ICustomer {
-	protected IAccount accounts;
+	protected IAccount account;
 
 	protected String name;
 	protected String street;
@@ -23,7 +23,7 @@ public abstract class ACustomer implements ICustomer {
 		this.zip = zip;
 		this.email = email;
 
-		this.accounts = new Accounts();
+		this.account = new Accounts();
 	}
 
 	public String getName() {
@@ -75,17 +75,13 @@ public abstract class ACustomer implements ICustomer {
 	}
 
 	@Override
-	public void addAccount(IAccount account) {
-		this.accounts.addAccount(account);
+	public void setAccount(IAccount account) {
+		this.account = account;
 		account.setCustomer(this);
 	}
 
 	@Override
-	public void removeAccount(IAccount account) {
-	}
-
-	@Override
 	public IAccount getAccount() {
-		return this.accounts.getAccount(0);
+		return this.account;
 	}
 }
