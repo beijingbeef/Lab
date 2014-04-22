@@ -1,4 +1,4 @@
-package com.asd.gui;
+package com.asd.ccardapplication;
 
 import java.awt.BorderLayout;
 import java.awt.Frame;

@@ -28,7 +28,7 @@ import java.awt.Color;
 
 import javax.swing.border.BevelBorder;
 
-public class MainFrame extends JFrame {
+public abstract class MainFrame extends JFrame {
 
 	/**
 	 * 
@@ -203,21 +203,14 @@ public class MainFrame extends JFrame {
 
 	//need to be override by sub-class
 	//button 1 click
-	protected void do_btnNewButton_1_actionPerformed(ActionEvent e) {
-		JOptionPane.showMessageDialog(null, "please override[do_btnNewButton_1_actionPerformed] in sub-class", "warning", JOptionPane.ERROR_MESSAGE);
-	}
+	protected abstract void do_btnNewButton_1_actionPerformed(ActionEvent e);
+	
 	//button 2 click
-	protected void do_btnNewButton_2_actionPerformed(ActionEvent e) {
-		JOptionPane.showMessageDialog(null, "please override[do_btnNewButton_2_actionPerformed] in sub-class", "warning", JOptionPane.ERROR_MESSAGE);
-	}
+	protected abstract void do_btnNewButton_2_actionPerformed(ActionEvent e);
 	//button 3 click
-	protected void do_btnNewButton_3_actionPerformed(ActionEvent e) {
-		JOptionPane.showMessageDialog(null, "please override[do_btnNewButton_3_actionPerformed] in sub-class", "warning", JOptionPane.ERROR_MESSAGE);
-	}
+	protected abstract void do_btnNewButton_3_actionPerformed(ActionEvent e);
 	//button 4 click
-	protected void do_btnNewButton_4_actionPerformed(ActionEvent e) {
-		JOptionPane.showMessageDialog(null, "please override[do_btnNewButton_4_actionPerformed] in sub-class", "warning", JOptionPane.ERROR_MESSAGE);
-	}
+	protected abstract void do_btnNewButton_4_actionPerformed(ActionEvent e);
 	//get the component which be added to the DIPanel 
 	public JPanel getDIYComponentPanel(){
 		JPanel panel = new JPanel();

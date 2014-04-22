@@ -8,6 +8,7 @@ import java.util.Map;
 
 import com.asd.bankapplication.gui.BankGuiFactory;
 import com.asd.ccardapplication.ACCardAccount;
+import com.asd.ccardapplication.BillDialog;
 import com.asd.ccardapplication.BronzeAccount;
 import com.asd.ccardapplication.GoldAccount;
 import com.asd.ccardapplication.SilverAccount;
@@ -21,7 +22,6 @@ import com.asd.framework.IAccount;
 import com.asd.framework.ICommand;
 import com.asd.framework.ICustomer;
 import com.asd.framework.WithdrawCmd;
-import com.asd.gui.BillDialog;
 import com.asd.gui.MainFrame;
 import com.asd.gui.PopDialog;
 
@@ -62,7 +62,7 @@ public class CreditMainFrame extends MainFrame {
 		String street = data.get("Street");
 		String city = data.get("City");
 		String state = data.get("State");
-		String zip = data.get("Zip");
+		String zip = data.get("Zip").equals("") ? "0" : data.get("Zip");
 		String email = data.get("Email");
 		String cc_number = data.get("CC Number");
 		String exp = data.get("Exp. Date");
@@ -186,7 +186,13 @@ public class CreditMainFrame extends MainFrame {
 		SimpleDateFormat sdf = new SimpleDateFormat("MM/yy");
 		result[0] = customer.getName();
 		result[1] = account.getCCnumber();
-		result[2] = sdf.format(date);
+		
+		try {
+			result[2] = sdf.format(date);
+		} catch (Exception e1) {
+			result[2] = "";
+		}
+		
 		result[3] = account.getType();
 		result[4] = String.valueOf(account.getCurrentBalance());
 		return result;
