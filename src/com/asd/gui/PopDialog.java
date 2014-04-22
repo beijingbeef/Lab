@@ -78,6 +78,7 @@ public class PopDialog extends JDialog {
 		fwHeight = 0 == radios.length ?  fwHeight + 10 : fwHeight;
 		
 		setBounds(100, 100, 360, fwHeight);
+		this.setResizable(false);
 
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPanel.setLayout(new BorderLayout(0, 0));
