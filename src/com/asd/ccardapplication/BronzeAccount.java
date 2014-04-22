@@ -2,7 +2,7 @@ package com.asd.ccardapplication;
 
 import java.util.Date;
 
-public class BronzeAccount extends CCardAccount {
+public class BronzeAccount extends ACCardAccount {
 
 	public BronzeAccount() {
 		super();

@@ -6,14 +6,14 @@ import com.asd.framework.AAccount;
 import com.asd.framework.IAccount;
 import com.asd.framework.ICustomer;
 
-public abstract class CCardAccount extends AAccount {
+public abstract class ACCardAccount extends AAccount {
 	private Date expire_date;
 
-	public CCardAccount() {
+	public ACCardAccount() {
 		super();
 	}
 
-	public CCardAccount(String ccnumber, Date expDate) {
+	public ACCardAccount(String ccnumber, Date expDate) {
 		this.ccnumber = ccnumber;
 		this.expire_date = expDate;
 	}
@@ -92,6 +92,6 @@ public abstract class CCardAccount extends AAccount {
 				getCurrentBalance()));
 		strBuilder.append(String.format("Total amount due= %.2f\n",
 				getMonthlyAmountDue()));
-		return super.toString();
+		return strBuilder.toString();
 	}
 }
