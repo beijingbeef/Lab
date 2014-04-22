@@ -30,7 +30,5 @@ public interface IAccount {
 
 	public double getMonthlyAmountDue();
 
-	public double getInterest();
-
 	public String generateMonthlyBills();
 }

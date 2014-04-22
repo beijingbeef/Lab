@@ -6,16 +6,11 @@ import com.asd.framework.IAccount;
 import com.asd.framework.TransactionType;
 
 public class SavingAccount extends AAccount {
-	private double interest_rate = 0;
-
-	@Override
-	public double getInterest() {
-		return this.interest_rate;
-	}
+	private double interest_rate = 0.10;
 
 	@Override
 	public void addInterest() {
-		double interest = getCurrentBalance() * getInterest();
+		double interest = getCurrentBalance() * this.interest_rate;
 		addEntry(new Entry(TransactionType.interest, interest));
 	}
 

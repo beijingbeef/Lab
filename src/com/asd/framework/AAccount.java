@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public abstract class AAccount implements IAccount {
 	protected ICustomer customer;
-	protected String ccnumber;
+	protected String accnr;
 	protected double current_balance;
 	protected ArrayList<IEntry> entries = new ArrayList<>();
 

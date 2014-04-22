@@ -41,11 +41,6 @@ public class Accounts extends AAccount {
 	}
 
 	@Override
-	public double getInterest() {
-		return 0;
-	}
-
-	@Override
 	public String getType() {
 		return null;
 	}

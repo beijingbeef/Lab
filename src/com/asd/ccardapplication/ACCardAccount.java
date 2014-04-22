@@ -15,12 +15,12 @@ public abstract class ACCardAccount extends AAccount {
 	protected Date expire_date;
 
 	public ACCardAccount(String ccnumber, Date expDate) {
-		this.ccnumber = ccnumber;
+		this.accnr = ccnumber;
 		this.expire_date = expDate;
 	}
 
 	public String getCCnumber() {
-		return this.ccnumber;
+		return this.accnr;
 	}
 
 	public Date getExpire_date() {
@@ -35,11 +35,6 @@ public abstract class ACCardAccount extends AAccount {
 	@Override
 	public IAccount getAccount(int index) {
 		return null;
-	}
-
-	@Override
-	public double getInterest() {
-		return monthly_interest;
 	}
 
 	@Override
