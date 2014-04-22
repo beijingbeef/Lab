@@ -19,6 +19,13 @@ public abstract class ACCardAccount extends AAccount {
 		this.expire_date = expDate;
 	}
 
+	@Override
+	public void addEntry(IEntry entry) {
+		if (this.expire_date.compareTo(new Date()) < 0) {
+			super.addEntry(entry);
+		}
+	}
+
 	public String getCCnumber() {
 		return this.accnr;
 	}
