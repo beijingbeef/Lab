@@ -20,18 +20,6 @@ public class Customer extends ACustomer {
 	}
 
 	@Override
-	public String getDob() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public int getNumberOfEmployee() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
 	public String getType() {
 		// TODO Auto-generated method stub
 		return null;

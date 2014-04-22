@@ -28,16 +28,6 @@ public class Customers extends ACustomer {
 	}
 
 	@Override
-	public String getDob() {
-		return null;
-	}
-
-	@Override
-	public int getNumberOfEmployee() {
-		return 0;
-	}
-
-	@Override
 	public String getType() {
 		return null;
 	}

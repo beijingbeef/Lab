@@ -18,11 +18,6 @@ public class Company extends ACustomer implements ICompany {
 	}
 
 	@Override
-	public String getDob() {
-		return null;
-	}
-
-	@Override
 	public int getNumberOfEmployee() {
 		return this.nr_of_employee;
 	}

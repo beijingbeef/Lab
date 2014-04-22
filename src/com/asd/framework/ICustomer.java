@@ -1,9 +1,7 @@
 package com.asd.framework;
 
 public interface ICustomer {
-	public void addAccount(IAccount account);
-
-	public void removeAccount(IAccount account);
+	public void setAccount(IAccount account);
 
 	public ICustomer getCustomer(int index);
 
@@ -22,10 +20,6 @@ public interface ICustomer {
 	public int getZip();
 
 	public String getEmail();
-
-	public String getDob();
-
-	public int getNumberOfEmployee();
 
 	public String getType();
 

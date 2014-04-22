@@ -8,7 +8,7 @@ import com.asd.framework.AAccount;
 import com.asd.framework.Customer;
 import com.asd.framework.IAccount;
 import com.asd.framework.ICustomer;
-import com.asd.framework.Personal;
+import com.asd.framework.Person;
 import com.asd.gui.BillFrame;
 import com.asd.gui.MainFrame;
 import com.asd.gui.PopDialog;

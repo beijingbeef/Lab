@@ -2,8 +2,6 @@ package com.asd.framework;
 
 public interface IAccount {
 
-	public void addAccount(IAccount account);
-
 	public void addEntry(IEntry entry);
 
 	public void notifyCustomer();
