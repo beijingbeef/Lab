@@ -12,10 +12,12 @@ public abstract class AAccount implements IAccount {
 		this.entries = new ArrayList<>();
 	}
 
+	@Override
 	public ICustomer getCustomer() {
 		return customer;
 	}
 
+	@Override
 	public void setCustomer(ICustomer customer) {
 		this.customer = customer;
 	}

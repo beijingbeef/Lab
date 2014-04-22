@@ -14,6 +14,10 @@ public interface IAccount {
 
 	public IAccount getAccount(int index);
 
+	public void setCustomer(ICustomer c);
+
+	public ICustomer getCustomer();
+
 	public double getCurrentBalance();
 
 	public double getLastMonthBalance();

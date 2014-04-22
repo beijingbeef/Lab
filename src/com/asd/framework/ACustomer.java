@@ -77,6 +77,7 @@ public abstract class ACustomer implements ICustomer {
 	@Override
 	public void addAccount(IAccount account) {
 		this.accounts.addAccount(account);
+		account.setCustomer(this);
 	}
 
 	@Override
