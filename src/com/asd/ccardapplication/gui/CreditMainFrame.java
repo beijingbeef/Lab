@@ -22,8 +22,8 @@ import com.asd.framework.IAccount;
 import com.asd.framework.ICommand;
 import com.asd.framework.ICustomer;
 import com.asd.framework.WithdrawCmd;
-import com.asd.gui.MainFrame;
-import com.asd.gui.PopDialog;
+import com.asd.framework.gui.MainFrame;
+import com.asd.framework.gui.PopDialog;
 
 public class CreditMainFrame extends MainFrame {
 

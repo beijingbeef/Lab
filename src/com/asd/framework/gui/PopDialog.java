@@ -1,4 +1,4 @@
-package com.asd.gui;
+package com.asd.framework.gui;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;

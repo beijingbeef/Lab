@@ -2,9 +2,9 @@ package com.asd.bankapplication.gui;
 
 import java.awt.Frame;
 
-import com.asd.gui.GUIFactory;
-import com.asd.gui.MainFrame;
-import com.asd.gui.PopDialog;
+import com.asd.framework.gui.GUIFactory;
+import com.asd.framework.gui.MainFrame;
+import com.asd.framework.gui.PopDialog;
 
 public class BankGuiFactory extends GUIFactory {
 

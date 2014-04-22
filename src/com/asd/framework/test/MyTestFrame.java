@@ -1,4 +1,4 @@
-package com.asd.test.gui;
+package com.asd.framework.test;
 
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
@@ -7,8 +7,8 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
-import com.asd.gui.MainFrame;
-import com.asd.gui.PopDialog;
+import com.asd.framework.gui.MainFrame;
+import com.asd.framework.gui.PopDialog;
 
 public class MyTestFrame extends MainFrame {
 
