@@ -4,11 +4,11 @@ import java.util.ArrayList;
 
 public abstract class AAccount implements IAccount {
 	protected ICustomer customer;
+	protected String ccnumber;
 	protected double current_balance;
 	protected ArrayList<IEntry> entries;
 
 	public AAccount() {
-
 		this.entries = new ArrayList<>();
 	}
 
@@ -17,7 +17,6 @@ public abstract class AAccount implements IAccount {
 	}
 
 	public void setCustomer(ICustomer customer) {
-
 		this.customer = customer;
 	}
 
@@ -44,6 +43,9 @@ public abstract class AAccount implements IAccount {
 
 	@Override
 	public abstract void addInterest();
+
+	@Override
+	public abstract String getType();
 
 	@Override
 	public abstract double getTotalMonthlyCredit();

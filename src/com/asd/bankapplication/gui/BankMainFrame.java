@@ -8,6 +8,8 @@ import java.util.Map;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
+import com.asd.bankapplication.CheckingAccount;
+import com.asd.bankapplication.SavingAccount;
 import com.asd.framework.AddAccountCmd;
 import com.asd.framework.AddCustomerCmd;
 import com.asd.framework.CmdMgr;
@@ -19,8 +21,6 @@ import com.asd.framework.ICommand;
 import com.asd.framework.ICustomer;
 import com.asd.framework.Personal;
 import com.asd.framework.WithdrawCmd;
-import com.asd.framework.impl.CheckingAccount;
-import com.asd.framework.impl.SavingAccount;
 import com.asd.gui.MainFrame;
 import com.asd.gui.PopDialog;
 

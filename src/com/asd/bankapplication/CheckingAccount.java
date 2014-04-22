@@ -1,4 +1,4 @@
-package com.asd.framework.impl;
+package com.asd.bankapplication;
 
 import com.asd.framework.AAccount;
 import com.asd.framework.Entry;
