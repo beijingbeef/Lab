@@ -8,6 +8,7 @@ import java.util.Map;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
+import com.asd.framework.AddAccountCmd;
 import com.asd.framework.AddCustomerCmd;
 import com.asd.framework.CmdMgr;
 import com.asd.framework.Company;
@@ -67,25 +68,20 @@ public class BankMainFrame extends MainFrame {
 
 		ICustomer customer = new Personal(name, street, city, state,
 				Integer.parseInt(zip), birthdaty, email);
-		
+
 		ICommand cmd = new AddCustomerCmd(customers, customer);
-		
-		
+		cmdmgr.submit(cmd);
+
 		IAccount account = null;
 		if ("chekings".equals(type)) {
 			account = new CheckingAccount();
 		} else {
 			account = new SavingAccount();
 		}
-		customer.addAccount(account);
+		cmd = new AddAccountCmd(customer, account);
+		cmdmgr.submit(cmd);
 
-		customers.addCustomer(customer);
-
-		String[] rowValues = { customer.getName(), customer.getStreet(),
-				customer.getCity(), customer.getState(),
-				String.valueOf(customer.getZip()), customer.getType(),
-				account.getType(), String.valueOf(account.getCurrentBalance()) };
-		addTableRowData(rowValues);
+		addTableRowData(parseCustomer(customer));
 	}
 
 	@Override
@@ -114,21 +110,21 @@ public class BankMainFrame extends MainFrame {
 
 		ICustomer customer = new Company(name, street, city, state,
 				Integer.parseInt(zip), Integer.parseInt(NOE), email);
+
+		ICommand cmd = new AddCustomerCmd(customers, customer);
+		cmdmgr.submit(cmd);
+
 		IAccount account = null;
 		if ("chekings".equals(type)) {
 			account = new CheckingAccount();
 		} else {
 			account = new SavingAccount();
 		}
-		customer.addAccount(account);
 
-		customers.addCustomer(customer);
+		cmd = new AddAccountCmd(customer, account);
+		cmdmgr.submit(cmd);
 
-		String[] rowValues = { customer.getName(), customer.getStreet(),
-				customer.getCity(), customer.getState(),
-				String.valueOf(customer.getZip()), customer.getType(),
-				account.getType(), String.valueOf(account.getCurrentBalance()) };
-		addTableRowData(rowValues);
+		addTableRowData(parseCustomer(customer));
 	}
 
 	/**
