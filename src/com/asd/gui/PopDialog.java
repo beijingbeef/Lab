@@ -77,7 +77,7 @@ public class PopDialog extends JDialog {
 		int fwHeight = (radios.length + textfields.length) * (height + 5) + 65 ;
 		fwHeight = 0 == radios.length ?  fwHeight + 10 : fwHeight;
 		
-		setBounds(100, 100, 330, fwHeight);
+		setBounds(100, 100, 360, fwHeight);
 
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPanel.setLayout(new BorderLayout(0, 0));
