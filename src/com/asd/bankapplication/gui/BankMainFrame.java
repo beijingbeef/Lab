@@ -69,15 +69,16 @@ public class BankMainFrame extends MainFrame {
 		ICustomer customer = new Person(name, street, city, state,
 				Integer.parseInt(zip), birthdaty, email);
 
-		ICommand cmd = new AddCustomerCmd(customers, customer);
-		cmdmgr.submit(cmd);
-
 		IAccount account = null;
 		if ("chekings".equals(type)) {
 			account = new CheckingAccount();
 		} else {
 			account = new SavingAccount();
 		}
+		
+		ICommand cmd = new AddCustomerCmd(customers, customer);
+		cmdmgr.submit(cmd);
+
 		cmd = new AddAccountCmd(customer, account);
 		cmdmgr.submit(cmd);
 
@@ -111,15 +112,15 @@ public class BankMainFrame extends MainFrame {
 		ICustomer customer = new Company(name, street, city, state,
 				Integer.parseInt(zip), Integer.parseInt(NOE), email);
 
-		ICommand cmd = new AddCustomerCmd(customers, customer);
-		cmdmgr.submit(cmd);
-
 		IAccount account = null;
 		if ("chekings".equals(type)) {
 			account = new CheckingAccount();
 		} else {
 			account = new SavingAccount();
 		}
+		
+		ICommand cmd = new AddCustomerCmd(customers, customer);
+		cmdmgr.submit(cmd);
 
 		cmd = new AddAccountCmd(customer, account);
 		cmdmgr.submit(cmd);
