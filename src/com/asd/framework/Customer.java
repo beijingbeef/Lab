@@ -48,11 +48,6 @@ public class Customer extends ACustomer {
 	}
 
 	@Override
-	public IAccount getAccount() {
-		return null;
-	}
-
-	@Override
 	public ICustomer getCustomer(String name) {
 		if (this.name.equals(name)) {
 			return this;

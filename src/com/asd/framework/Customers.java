@@ -53,11 +53,6 @@ public class Customers extends ACustomer {
 	}
 
 	@Override
-	public IAccount getAccount() {
-		return null;
-	}
-
-	@Override
 	public ICustomer getCustomer(String name) {
 		for (ICustomer c : this.customers) {
 			if (c.getCustomer(name) != null) {
