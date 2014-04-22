@@ -74,7 +74,7 @@ public class PopDialog extends JDialog {
 
 		setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 		
-		int fwHeight = (radios.length + textfields.length) * (height + 5) + 65 ;
+		int fwHeight = (radios.length + textfields.length) * (height + 5) + 80 ;
 		fwHeight = 0 == radios.length ?  fwHeight + 10 : fwHeight;
 		
 		setBounds(100, 100, 360, fwHeight);
