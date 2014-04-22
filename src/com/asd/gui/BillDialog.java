@@ -1,29 +1,36 @@
 package com.asd.gui;
 
 import java.awt.BorderLayout;
+import java.awt.Frame;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-import javax.swing.JFrame;
+import javax.swing.JButton;
+import javax.swing.JDialog;
 import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
-import javax.swing.JButton;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
+import javax.swing.border.EmptyBorder;
 
-public class BillFrame extends JFrame {
+public class BillDialog extends JDialog {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 3571477368073596893L;
 	private JPanel contentPane;
+	private String message = "";
+	
+	public BillDialog(Frame owner, boolean modal,String message){
+		super(owner, modal);
+		this.message = message;
+	}
 	
 	/**
 	 * Create the frame.
 	 */
-	public BillFrame(String message) {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	public void showBillDialog() {
+		setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -45,6 +52,8 @@ public class BillFrame extends JFrame {
 			}
 		});
 		panel.add(okButton);
+		
+		this.setVisible(true);
 	}
 
 	protected void do_okButton_actionPerformed(ActionEvent e) {

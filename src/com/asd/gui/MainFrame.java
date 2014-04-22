@@ -169,7 +169,7 @@ public class MainFrame extends JFrame {
 	}
 	
 	public void updateCellRenderer(){
-		System.out.println(tableModel.getColumnCount());
+		//System.out.println(tableModel.getColumnCount());
 		for(int i = 0 ; i < tableModel.getColumnCount(); i++){
 			table.getColumnModel().getColumn(i).setCellRenderer(cellRenderer);
 		}
