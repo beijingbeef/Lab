@@ -10,6 +10,9 @@ public abstract class ACustomer implements ICustomer {
 	protected int zip;
 	protected String email;
 
+	public ACustomer() {
+	}
+
 	public ACustomer(String name, String street, String city, String state,
 			int zip, String email) {
 		super();
@@ -83,12 +86,15 @@ public abstract class ACustomer implements ICustomer {
 
 	@Override
 	public void addAccount(IAccount account) {
+		if (this.account == null) {
+			this.account = account;
+		}
 		IAccount acc = getAccount();
 		acc.addAccount(account);
 		this.account = acc;
 		account.setCustomer(this);
 	}
-	
+
 	@Override
 	public void removeAccount(IAccount account) {
 		IAccount acc = getAccount();
@@ -118,7 +124,7 @@ public abstract class ACustomer implements ICustomer {
 
 	@Override
 	public abstract void sendEmailToCustomer();
-	
+
 	@Override
 	public abstract String getInitial();
 }

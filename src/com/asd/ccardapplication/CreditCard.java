@@ -8,15 +8,14 @@ import java.util.Map;
 
 import com.asd.ccardapplication.gui.CreditGuiFactory;
 import com.asd.framework.AddAccountCmd;
-import com.asd.framework.AddCustomerCmd;
 import com.asd.framework.Application;
 import com.asd.framework.CmdMgr;
-import com.asd.framework.Customer;
-import com.asd.framework.Customers;
+import com.asd.framework.Company;
 import com.asd.framework.DepositCmd;
 import com.asd.framework.IAccount;
 import com.asd.framework.ICommand;
 import com.asd.framework.ICustomer;
+import com.asd.framework.Person;
 import com.asd.framework.WithdrawCmd;
 import com.asd.framework.gui.GUIFactory;
 import com.asd.framework.gui.GuiActionFunctor;
@@ -24,7 +23,7 @@ import com.asd.framework.gui.PopDialog;
 
 public class CreditCard extends Application {
 
-	private ICustomer customers = new Customers();
+	private ICustomer customers = new Company();
 	private CmdMgr cmdmgr = new CmdMgr();
 
 	@Override
@@ -70,8 +69,8 @@ public class CreditCard extends Application {
 
 				System.out.println("expDate" + expDate);
 
-				ICustomer customer = new Customer(name, street, city, state,
-						Integer.parseInt(zip), email);
+				ICustomer customer = new Person(name, street, city, state,
+						Integer.parseInt(zip), null, email);
 
 				IAccount account = null;
 				if (type.equals("Gold")) {
@@ -82,10 +81,9 @@ public class CreditCard extends Application {
 					account = new BronzeAccount(cc_number, expDate);
 				}
 
-				ICommand cmd = new AddCustomerCmd(customers, customer);
-				cmdmgr.submit(cmd);
+				customers.addCustomer(customer);
 
-				cmd = new AddAccountCmd(customer, account);
+				ICommand cmd = new AddAccountCmd(customer, account);
 				cmdmgr.submit(cmd);
 
 				mainframe.addTableRowData(mainframe.parseCustomer(customer));
@@ -97,7 +95,7 @@ public class CreditCard extends Application {
 		mainframe.setBtnButtonFunctor_2(new GuiActionFunctor() {
 			public void actionPerformed(ActionEvent e) {
 				StringBuilder sb = new StringBuilder();
-				int size = customers.getSize();
+				int size = customers.count();
 				for (int i = 0; i < size; i++) {
 					sb.append(customers.getCustomer(i).getAccount()
 							.generateMonthlyBills());
@@ -182,7 +180,7 @@ public class CreditCard extends Application {
 
 	private int getCustomerIndex(ICustomer customer) {
 		int index = -1;
-		int size = customers.getSize();
+		int size = customers.count();
 		for (int i = 0; i < size; i++) {
 			ICustomer c = customers.getCustomer(i);
 			if (c.getName().equals(customer.getName())) {
@@ -204,8 +202,8 @@ public class CreditCard extends Application {
 		} catch (ParseException e1) {
 			System.out.println("Wrong Date Formate " + exp);
 		}
-		ICustomer customer = new Customer(name, street, city, state,
-				Integer.parseInt(zip), email);
+		ICustomer customer = new Person(name, street, city, state,
+				Integer.parseInt(zip), null, email);
 		IAccount account = null;
 		if (type.equals("Gold")) {
 			account = new GoldAccount(cc_number, expDate);
@@ -215,10 +213,9 @@ public class CreditCard extends Application {
 			account = new BronzeAccount(cc_number, expDate);
 		}
 
-		ICommand cmd = new AddCustomerCmd(customers, customer);
-		cmdmgr.submit(cmd);
+		customers.addCustomer(customer);
 
-		cmd = new AddAccountCmd(customer, account);
+		ICommand cmd = new AddAccountCmd(customer, account);
 		cmdmgr.submit(cmd);
 
 		mainframe.addTableRowData(mainframe.parseCustomer(customer));

@@ -10,12 +10,10 @@ import javax.swing.JPanel;
 
 import com.asd.bankapplication.gui.BankGuiFactory;
 import com.asd.framework.AddAccountCmd;
-import com.asd.framework.AddCustomerCmd;
 import com.asd.framework.AddInterestCmd;
 import com.asd.framework.Application;
 import com.asd.framework.CmdMgr;
 import com.asd.framework.Company;
-import com.asd.framework.Customers;
 import com.asd.framework.DepositCmd;
 import com.asd.framework.IAccount;
 import com.asd.framework.ICommand;
@@ -28,7 +26,7 @@ import com.asd.framework.gui.PopDialog;
 
 public class Bank extends Application {
 
-	private ICustomer customers = new Customers();
+	private ICustomer customers = new Company();
 	private CmdMgr cmdmgr = new CmdMgr();
 
 	@Override
@@ -69,10 +67,9 @@ public class Bank extends Application {
 					account = new SavingAccount();
 				}
 
-				ICommand cmd = new AddCustomerCmd(customers, customer);
-				cmdmgr.submit(cmd);
+				customers.addCustomer(customer);
 
-				cmd = new AddAccountCmd(customer, account);
+				ICommand cmd = new AddAccountCmd(customer, account);
 				cmdmgr.submit(cmd);
 
 				mainframe.addTableRowData(mainframe.parseCustomer(customer));
@@ -112,10 +109,9 @@ public class Bank extends Application {
 					account = new SavingAccount();
 				}
 
-				ICommand cmd = new AddCustomerCmd(customers, customer);
-				cmdmgr.submit(cmd);
+				customers.addCustomer(customer);
 
-				cmd = new AddAccountCmd(customer, account);
+				ICommand cmd = new AddAccountCmd(customer, account);
 				cmdmgr.submit(cmd);
 
 				mainframe.addTableRowData(mainframe.parseCustomer(customer));
@@ -200,7 +196,7 @@ public class Bank extends Application {
 	}
 
 	public void addInterest_actionPerformed(ActionEvent e) {
-		int size = customers.getSize();
+		int size = customers.count();
 		for (int i = 0; i < size; i++) {
 			ICustomer customer = customers.getCustomer(i);
 			ICommand cmd = new AddInterestCmd(customer.getAccount());
@@ -211,7 +207,7 @@ public class Bank extends Application {
 
 	private int getCustomerIndex(ICustomer customer) {
 		int index = -1;
-		int size = customers.getSize();
+		int size = customers.count();
 		for (int i = 0; i < size; i++) {
 			ICustomer c = customers.getCustomer(i);
 			if (c.getName().equals(customer.getName())) {
@@ -234,10 +230,9 @@ public class Bank extends Application {
 			account = new SavingAccount();
 		}
 
-		ICommand cmd = new AddCustomerCmd(customers, customer);
-		cmdmgr.submit(cmd);
+		customers.addCustomer(customer);
 
-		cmd = new AddAccountCmd(customer, account);
+		ICommand cmd = new AddAccountCmd(customer, account);
 		cmdmgr.submit(cmd);
 
 		mainframe.addTableRowData(mainframe.parseCustomer(customer));
@@ -255,10 +250,9 @@ public class Bank extends Application {
 			account = new SavingAccount();
 		}
 
-		ICommand cmd = new AddCustomerCmd(customers, customer);
-		cmdmgr.submit(cmd);
+		customers.addCustomer(customer);
 
-		cmd = new AddAccountCmd(customer, account);
+		ICommand cmd = new AddAccountCmd(customer, account);
 		cmdmgr.submit(cmd);
 
 		mainframe.addTableRowData(mainframe.parseCustomer(customer));

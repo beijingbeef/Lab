@@ -5,12 +5,19 @@ import java.util.ArrayList;
 public class Company extends ACustomer implements ICompany {
 	private int nr_of_employee;
 
-	protected ArrayList<ICustomer> customers;
+	protected ArrayList<ICustomer> customers = new ArrayList<>();
+
+	public Company() {
+		this(0);
+	}
+
+	public Company(int noe) {
+		this("", "", "", "", 0, noe, "");
+	}
 
 	public Company(String name, String street, String city, String state,
 			int zip, int noe, String email) {
 		super(name, street, city, state, zip, email);
-		this.nr_of_employee = noe;
 	}
 
 	@Override
@@ -58,7 +65,7 @@ public class Company extends ACustomer implements ICompany {
 			c.sendEmailToCustomer();
 		}
 	}
-	
+
 	@Override
 	public String getInitial() {
 		return "C";
