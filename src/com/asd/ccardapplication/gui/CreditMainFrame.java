@@ -6,7 +6,6 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Map;
 
-import com.asd.bankapplication.gui.BankGuiFactory;
 import com.asd.ccardapplication.ACCardAccount;
 import com.asd.ccardapplication.BillDialog;
 import com.asd.ccardapplication.BronzeAccount;
@@ -48,7 +47,7 @@ public class CreditMainFrame extends MainFrame {
 		String[] radios = { "Gold", "Silver", "Bronze" };
 		String[] textfields = { "Name", "Street", "City", "State", "Zip",
 				"Email", "CC Number", "Exp. Date" };
-		PopDialog p = BankGuiFactory.createInstance().creatCustormerForm(this,
+		PopDialog p = CreditGuiFactory.createInstance().creatCustormerForm(this,
 				radios, textfields);
 		p.showWindow();
 		Map<String, String> data = p.getData();
@@ -122,7 +121,7 @@ public class CreditMainFrame extends MainFrame {
 	@Override
 	protected void do_btnNewButton_3_actionPerformed(ActionEvent e) {
 
-		PopDialog p = BankGuiFactory.createInstance().createDepositForm(this);
+		PopDialog p = CreditGuiFactory.createInstance().createDepositForm(this);
 		p.showWindow();
 		Map<String, String> data = p.getData();
 		if (null == data) {
@@ -154,7 +153,7 @@ public class CreditMainFrame extends MainFrame {
 	 */
 	@Override
 	protected void do_btnNewButton_4_actionPerformed(ActionEvent e) {
-		PopDialog p = BankGuiFactory.createInstance().createWithdrawForm(this);
+		PopDialog p = CreditGuiFactory.createInstance().createWithdrawForm(this);
 		p.showWindow();
 		Map<String, String> data = p.getData();
 		if (null == data) {
