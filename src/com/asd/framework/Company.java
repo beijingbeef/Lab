@@ -32,7 +32,7 @@ public class Company extends ACustomer implements ICompany {
 
 	@Override
 	public ICustomer getCustomer(int index) {
-		return null;
+		return customers.get(index);
 	}
 
 	@Override
