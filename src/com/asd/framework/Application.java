@@ -5,6 +5,7 @@ import com.asd.framework.gui.MainFrame;
 
 public class Application {
 	
+	protected MainFrame mainframe = null;
 	protected GUIFactory factory = null;
 	
 	public void setGUIFactory( GUIFactory factory){
@@ -12,7 +13,6 @@ public class Application {
 	}
 	
 	public void run(){
-		MainFrame mainframe = this.factory.createMainFrame();
 		mainframe.setVisible(true);
 	}
 }

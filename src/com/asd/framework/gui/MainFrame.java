@@ -21,11 +21,11 @@ import javax.swing.SwingConstants;
 import java.awt.Dimension;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-
-
 import java.awt.Color;
 
 import javax.swing.border.BevelBorder;
+
+import com.asd.framework.ICustomer;
 
 public abstract class MainFrame extends JFrame {
 
@@ -42,11 +42,24 @@ public abstract class MainFrame extends JFrame {
 	protected String button_3_name = "button_3";
 	protected String button_4_name = "button_4";
 	
+	
+	protected JButton btnNewButton_1 = null;
+	protected JButton btnNewButton_2 = null;
+	protected JButton btnNewButton_3 = null;
+	protected JButton btnNewButton_4 = null;
+	
 	protected String[] columnNames = {"col1","col2","col3"};
 	protected String [][]tableVales = {};
 	
+	private GuiActionFunctor btnButtonFunctor_1 = new GuiActionFunctor();
+	private GuiActionFunctor btnButtonFunctor_2 = new GuiActionFunctor();
+	private GuiActionFunctor btnButtonFunctor_3 = new GuiActionFunctor();
+	private GuiActionFunctor btnButtonFunctor_4 = new GuiActionFunctor();
+	
 	private TableCellRenderer cellRenderer = new CommonTableCellRenderer();
-
+	
+	private JPanel diyPanelContainer = new JPanel();
+	
 	/**
 	 * Create the frame.
 	 */
@@ -73,7 +86,7 @@ public abstract class MainFrame extends JFrame {
 		flowLayout_1.setAlignment(FlowLayout.LEFT);
 		contentPane.add(panel, BorderLayout.NORTH);
 		
-		JButton btnNewButton_1 = new JButton(button_1_name);
+		btnNewButton_1 = new JButton(button_1_name);
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				do_btnNewButton_1_actionPerformed(e);
@@ -82,7 +95,7 @@ public abstract class MainFrame extends JFrame {
 		btnNewButton_1.setHorizontalAlignment(SwingConstants.LEFT);
 		panel.add(btnNewButton_1);
 		
-		JButton btnNewButton_2 = new JButton(button_2_name);
+		btnNewButton_2 = new JButton(button_2_name);
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				do_btnNewButton_2_actionPerformed(e);
@@ -91,10 +104,7 @@ public abstract class MainFrame extends JFrame {
 		panel.add(btnNewButton_2);
 		
 		//DIY 
-		JPanel diyPanelContainer = new JPanel();
 		panel.add(diyPanelContainer);
-		JPanel diyPanel = getDIYComponentPanel();
-		diyPanelContainer.add(diyPanel);
 		
 		//table
 		tableModel = new DefaultTableModel(tableVales,columnNames);
@@ -123,13 +133,13 @@ public abstract class MainFrame extends JFrame {
 		panel_3.setPreferredSize(preferredSize);
 		
 		panel_1.add(panel_3, BorderLayout.EAST);
-		JButton btnNewButton_3 = new JButton(button_3_name);
+		btnNewButton_3 = new JButton(button_3_name);
 		btnNewButton_3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				do_btnNewButton_3_actionPerformed(e);
 			}
 		});
-		JButton btnNewButton_4 = new JButton(button_4_name);
+		btnNewButton_4 = new JButton(button_4_name);
 		btnNewButton_4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				do_btnNewButton_4_actionPerformed(e);
@@ -149,6 +159,7 @@ public abstract class MainFrame extends JFrame {
 			}
 		});
 		panel_4.add(exitButton);
+		
 		
 	}
 	
@@ -214,20 +225,56 @@ public abstract class MainFrame extends JFrame {
 	protected void do_exitButton_actionPerformed(ActionEvent e){
 		this.dispose();
 	}
-
-	//need to be override by sub-class
-	//button 1 click
-	protected abstract void do_btnNewButton_1_actionPerformed(ActionEvent e);
-	//button 2 click
-	protected abstract void do_btnNewButton_2_actionPerformed(ActionEvent e);
-	//button 3 click
-	protected abstract void do_btnNewButton_3_actionPerformed(ActionEvent e);
-	//button 4 click
-	protected abstract void do_btnNewButton_4_actionPerformed(ActionEvent e);
-	//get the component which be added to the DIPanel 
-	public JPanel getDIYComponentPanel(){
-		JPanel panel = new JPanel();
-		panel.setLayout(new FlowLayout());
-		return panel;
+	
+	public void setBtnButtonFunctor_1(GuiActionFunctor btnButtonFunctor_1) {
+		this.btnButtonFunctor_1 = btnButtonFunctor_1;
 	}
+
+
+	public void setBtnButtonFunctor_2(GuiActionFunctor btnButtonFunctor_2) {
+		this.btnButtonFunctor_2 = btnButtonFunctor_2;
+	}
+
+
+	public void setBtnButtonFunctor_3(GuiActionFunctor btnButtonFunctor_3) {
+		this.btnButtonFunctor_3 = btnButtonFunctor_3;
+	}
+
+
+	public void setBtnButtonFunctor_4(GuiActionFunctor btnButtonFunctor_4) {
+		this.btnButtonFunctor_4 = btnButtonFunctor_4;
+	}
+	
+	public String[] parseCustomer(ICustomer customer) {
+		return null;
+	}
+	/**
+	 * the code below here is used for client
+	 * @param e
+	 */
+	//button 1 click
+	protected void do_btnNewButton_1_actionPerformed(ActionEvent e){
+		btnButtonFunctor_1.actionPerformed(e);
+	};
+	//button 2 click
+	protected void do_btnNewButton_2_actionPerformed(ActionEvent e){
+		btnButtonFunctor_2.actionPerformed(e);
+	}
+	//button 3 click
+	protected void do_btnNewButton_3_actionPerformed(ActionEvent e){
+		btnButtonFunctor_3.actionPerformed(e);
+	};
+	//button 4 click
+	protected void do_btnNewButton_4_actionPerformed(ActionEvent e){
+		btnButtonFunctor_4.actionPerformed(e);
+	}
+	
+	public void setDIYComponentPanel(JPanel panel){
+		//DIY 
+		diyPanelContainer.removeAll();
+		diyPanelContainer.add(panel);
+	}
+
+	
+	
 }

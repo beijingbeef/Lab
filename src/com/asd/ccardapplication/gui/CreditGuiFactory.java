@@ -26,7 +26,6 @@ public class CreditGuiFactory extends GUIFactory {
 		CreditMainFrame frame = new CreditMainFrame("Credit-card processing Application","Add Credit-card account","Generate Monthly bills","Deposit","Charge");
 		String[] header = {"Name","CC number","Exp. date","Type","Balance"};
 		frame.setTableHeader(header);
-		frame.loadTestData();
 		return frame;
 	}
 
