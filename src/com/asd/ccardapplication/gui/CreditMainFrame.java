@@ -67,12 +67,15 @@ public class CreditMainFrame extends MainFrame {
 		String exp = data.get("Exp. Date");
 
 		SimpleDateFormat sdf = new SimpleDateFormat("MM/yy");
+		
 		Date expDate = null;
 		try {
 			expDate = sdf.parse(exp);
 		} catch (ParseException e1) {
 			System.out.println("Wrong Date Formate " + exp);
 		}
+		
+		System.out.println("expDate" + expDate);
 
 		ICustomer customer = new Customer(name, street, city, state,
 				Integer.parseInt(zip), email);
@@ -141,13 +144,13 @@ public class CreditMainFrame extends MainFrame {
 		cmdmgr.submit(cmd);
 
 		int index = getCustomerIndex(customer);
-		System.out.println(name + "@" + index);
+		//System.out.println(name + "@" + index);
 
 		updateRowData(index, parseCustomer(customer));
 	}
 
 	/**
-	 * withdraw
+	 * charge
 	 * 
 	 * @param e
 	 */

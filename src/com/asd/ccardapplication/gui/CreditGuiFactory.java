@@ -49,7 +49,7 @@ public class CreditGuiFactory extends GUIFactory {
 	@Override
 	public PopDialog createWithdrawForm(Frame owner) {
 		PopDialog p = new PopDialog(owner,true);
-		p.setTitle("Withdraw");
+		p.setTitle("Charge");
 		String[] textfields = {"Name","Amount"};
 		p.setTextfield(textfields);
 		return p;

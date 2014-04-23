@@ -21,7 +21,7 @@ public abstract class ACCardAccount extends AAccount {
 
 	@Override
 	public void addEntry(IEntry entry) {
-		if (this.expire_date.compareTo(new Date()) < 0) {
+		if (this.expire_date.compareTo(new Date()) > 0) {
 			super.addEntry(entry);
 		}
 	}
