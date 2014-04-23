@@ -139,6 +139,17 @@ public abstract class MainFrame extends JFrame {
 		panel_3.add(btnNewButton_3);
 		panel_3.add(btnNewButton_4);
 		
+		JPanel panel_4 = new JPanel();
+		panel_4.setLayout(new FlowLayout(FlowLayout.RIGHT));
+		panel_1.add(panel_4, BorderLayout.SOUTH);
+		JButton exitButton = new JButton("exit");
+		exitButton.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e) {
+				do_exitButton_actionPerformed(e);
+			}
+		});
+		panel_4.add(exitButton);
+		
 	}
 	
 	
@@ -199,11 +210,14 @@ public abstract class MainFrame extends JFrame {
 	public int getSelectedRow(){
 		return table.getSelectedRow();
 	}
+	
+	protected void do_exitButton_actionPerformed(ActionEvent e){
+		this.dispose();
+	}
 
 	//need to be override by sub-class
 	//button 1 click
 	protected abstract void do_btnNewButton_1_actionPerformed(ActionEvent e);
-	
 	//button 2 click
 	protected abstract void do_btnNewButton_2_actionPerformed(ActionEvent e);
 	//button 3 click
