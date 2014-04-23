@@ -54,10 +54,5 @@ public class CreditGuiFactory extends GUIFactory {
 		p.setTextfield(textfields);
 		return p;
 	}
-	
-	static public void main(String[] args){
-		CreditGuiFactory cgf = new CreditGuiFactory();
-		cgf.createMainFrame().setVisible(true);
-	}
 
 }

@@ -56,10 +56,5 @@ public class BankGuiFactory extends GUIFactory {
 		p.setTextfield(textfields);
 		return p;
 	}
-	
-	static public void main(String[] args){
-		BankGuiFactory bgf = new BankGuiFactory();
-		bgf.createMainFrame().setVisible(true);
-	}
 
 }
