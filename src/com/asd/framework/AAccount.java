@@ -3,14 +3,21 @@ package com.asd.framework;
 import java.util.ArrayList;
 
 public abstract class AAccount implements IAccount {
-	protected ICustomer customer;
 	protected String accnr;
 	protected double current_balance;
+	protected ICustomer customer;
 	protected ArrayList<IEntry> entries = new ArrayList<>();
 
 	@Override
-	public void addAccount(IAccount account) {
+	public double getCurrentBalance() {
+		return this.current_balance;
 	}
+
+	@Override
+	public abstract void addAccount(IAccount account);
+
+	@Override
+	public abstract void removeAccount(IAccount account);
 
 	@Override
 	public ICustomer getCustomer() {
@@ -24,30 +31,20 @@ public abstract class AAccount implements IAccount {
 
 	@Override
 	public void addEntry(IEntry entry) {
-		this.current_balance += entry.getAmount();
 		this.entries.add(entry);
+		this.current_balance += entry.getAmount();
 	}
 
 	@Override
-	public double getCurrentBalance() {
-		return this.current_balance;
-	}
-
-	@Override
-	public void notifyCustomer(double amount) {
-		getCustomer().sendEmailToCustomer(amount);
-	}
-
-	@Override
-	public String generateMonthlyBills() {
-		return null;
+	public void notifyCustomer() {
+		this.customer.sendEmailToCustomer();
 	}
 
 	@Override
 	public abstract void addInterest();
 
 	@Override
-	public abstract String getType();
+	public abstract String getInitial();
 
 	@Override
 	public abstract double getLastMonthBalance();
@@ -63,5 +60,8 @@ public abstract class AAccount implements IAccount {
 
 	@Override
 	public abstract double getMonthlyAmountDue();
+
+	@Override
+	public abstract String generateMonthlyBills();
 
 }

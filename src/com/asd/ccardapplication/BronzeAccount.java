@@ -11,7 +11,7 @@ public class BronzeAccount extends ACCardAccount {
 	}
 
 	@Override
-	public String getType() {
+	public String getInitial() {
 		return "Bronze";
 	}
 

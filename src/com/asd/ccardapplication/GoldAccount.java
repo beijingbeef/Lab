@@ -11,7 +11,7 @@ public class GoldAccount extends ACCardAccount {
 	}
 
 	@Override
-	public String getType() {
+	public String getInitial() {
 		return "Gold";
 	}
 

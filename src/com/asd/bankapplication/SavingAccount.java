@@ -15,6 +15,19 @@ public class SavingAccount extends AAccount {
 	}
 
 	@Override
+	public void addAccount(IAccount account) {
+	}
+
+	@Override
+	public void removeAccount(IAccount account) {
+	}
+
+	@Override
+	public String getInitial() {
+		return "S";
+	}
+
+	@Override
 	public double getLastMonthBalance() {
 		return 0;
 	}
@@ -40,12 +53,7 @@ public class SavingAccount extends AAccount {
 	}
 
 	@Override
-	public String getType() {
-		return "S";
-	}
-
-	@Override
-	public IAccount getAccount(int index) {
+	public String generateMonthlyBills() {
 		return null;
 	}
 

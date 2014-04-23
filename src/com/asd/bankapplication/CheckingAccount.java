@@ -15,6 +15,19 @@ public class CheckingAccount extends AAccount {
 	}
 
 	@Override
+	public void addAccount(IAccount account) {
+	}
+
+	@Override
+	public void removeAccount(IAccount account) {
+	}
+
+	@Override
+	public String getInitial() {
+		return "Ch";
+	}
+
+	@Override
 	public double getLastMonthBalance() {
 		return 0;
 	}
@@ -40,12 +53,7 @@ public class CheckingAccount extends AAccount {
 	}
 
 	@Override
-	public String getType() {
-		return "Ch";
-	}
-
-	@Override
-	public IAccount getAccount(int index) {
+	public String generateMonthlyBills() {
 		return null;
 	}
 

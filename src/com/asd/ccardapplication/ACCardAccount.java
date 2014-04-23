@@ -19,13 +19,6 @@ public abstract class ACCardAccount extends AAccount {
 		this.expire_date = expDate;
 	}
 
-	@Override
-	public void addEntry(IEntry entry) {
-		if (this.expire_date.compareTo(new Date()) > 0) {
-			super.addEntry(entry);
-		}
-	}
-
 	public String getCCnumber() {
 		return this.accnr;
 	}
@@ -35,13 +28,18 @@ public abstract class ACCardAccount extends AAccount {
 	}
 
 	@Override
-	public String getType() {
-		return null;
+	public void addAccount(IAccount account) {
 	}
 
 	@Override
-	public IAccount getAccount(int index) {
-		return null;
+	public void removeAccount(IAccount account) {
+	}
+
+	@Override
+	public void addEntry(IEntry entry) {
+		if (this.expire_date.compareTo(new Date()) > 0) {
+			super.addEntry(entry);
+		}
 	}
 
 	@Override
@@ -49,11 +47,14 @@ public abstract class ACCardAccount extends AAccount {
 	}
 
 	@Override
+	public abstract String getInitial();
+
+	@Override
 	public double getLastMonthBalance() {
 		Date now = new Date();
 		double total = 0;
 		for (IEntry e : this.entries) {
-			if (e.getDate().getMonth() == now.getMonth() -1) {
+			if (e.getDate().getMonth() == now.getMonth() - 1) {
 				total += e.getAmount();
 			}
 		}
@@ -110,7 +111,7 @@ public abstract class ACCardAccount extends AAccount {
 		strBuilder.append(String.format("Address= %s, %s, %s, %d\n",
 				c.getStreet(), c.getCity(), c.getState(), c.getZip()));
 		strBuilder.append(String.format("CC number= %s\n", getCCnumber()));
-		strBuilder.append(String.format("CC type= %s\n", getType()));
+		strBuilder.append(String.format("CC type= %s\n", getInitial()));
 		strBuilder.append(String.format("Previous balance= %.2f\n",
 				getLastMonthBalance()));
 		strBuilder.append(String.format("Total credits= %.2f\n",

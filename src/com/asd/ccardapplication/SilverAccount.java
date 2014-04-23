@@ -11,7 +11,7 @@ public class SilverAccount extends ACCardAccount {
 	}
 
 	@Override
-	public String getType() {
+	public String getInitial() {
 		return "Silver";
 	}
 

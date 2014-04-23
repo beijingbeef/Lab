@@ -3,16 +3,28 @@ package com.asd.framework;
 import java.util.ArrayList;
 
 public class Accounts extends AAccount {
-
 	protected ArrayList<IAccount> accounts = new ArrayList<>();
 
 	@Override
 	public void addAccount(IAccount account) {
-		accounts.add(account);
+		this.accounts.add(account);
+	}
+
+	@Override
+	public void removeAccount(IAccount account) {
+		this.accounts.remove(account);
 	}
 
 	@Override
 	public void addInterest() {
+		for (IAccount a : this.accounts) {
+			a.addInterest();
+		}
+	}
+
+	@Override
+	public String getInitial() {
+		return null;
 	}
 
 	@Override
@@ -41,13 +53,7 @@ public class Accounts extends AAccount {
 	}
 
 	@Override
-	public String getType() {
+	public String generateMonthlyBills() {
 		return null;
 	}
-
-	@Override
-	public IAccount getAccount(int index) {
-		return this.accounts.get(index);
-	}
-
 }

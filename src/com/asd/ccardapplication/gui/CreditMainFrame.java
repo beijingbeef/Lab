@@ -105,7 +105,7 @@ public class CreditMainFrame extends MainFrame {
 	protected void do_btnNewButton_2_actionPerformed(ActionEvent e) {
 
 		StringBuilder sb = new StringBuilder();
-		int size = customers.getSize();
+		int size = customers.count();
 		for (int i = 0; i < size; i++) {
 			sb.append(customers.getCustomer(i).getAccount()
 					.generateMonthlyBills());
@@ -195,14 +195,14 @@ public class CreditMainFrame extends MainFrame {
 			result[2] = "";
 		}
 		
-		result[3] = account.getType();
+		result[3] = account.getInitial();
 		result[4] = String.valueOf(account.getCurrentBalance());
 		return result;
 	}
 
 	private int getCustomerIndex(ICustomer customer) {
 		int index = -1;
-		int size = customers.getSize();
+		int size = customers.count();
 		for (int i = 0; i < size; i++) {
 			ICustomer c = customers.getCustomer(i);
 			if (c.getName().equals(customer.getName())) {

@@ -209,7 +209,7 @@ public class BankMainFrame extends MainFrame {
 	}
 
 	public void addInterest_actionPerformed(ActionEvent e) {
-		int size = customers.getSize();
+		int size = customers.count();
 		for (int i = 0; i < size; i++) {
 			ICustomer customer = customers.getCustomer(i);
 			ICommand cmd = new AddInterestCmd(customer.getAccount());
@@ -226,15 +226,15 @@ public class BankMainFrame extends MainFrame {
 		result[2] = customer.getCity();
 		result[3] = customer.getState();
 		result[4] = String.valueOf(customer.getZip());
-		result[5] = customer.getType();
-		result[6] = account.getType();
+		result[5] = customer.getInitial();
+		result[6] = account.getInitial();
 		result[7] = String.valueOf(account.getCurrentBalance());
 		return result;
 	}
 
 	private int getCustomerIndex(ICustomer customer) {
 		int index = -1;
-		int size = customers.getSize();
+		int size = customers.count();
 		for (int i = 0; i < size; i++) {
 			ICustomer c = customers.getCustomer(i);
 			if (c.getName().equals(customer.getName())) {

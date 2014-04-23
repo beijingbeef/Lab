@@ -10,31 +10,18 @@ public class Person extends ACustomer implements IPerson {
 	}
 
 	@Override
-	public void addCustomer(ICustomer customer) {
-	}
-
-	@Override
-	public void removeCustomer(ICustomer customer) {
-	}
-
-	@Override
 	public String getDob() {
 		return this.dob;
 	}
 
 	@Override
-	public String getType() {
-		return "P";
+	public int count() {
+		return 1;
 	}
 
 	@Override
 	public ICustomer getCustomer(int index) {
 		return null;
-	}
-
-	@Override
-	public int getSize() {
-		return 0;
 	}
 
 	@Override
@@ -46,10 +33,20 @@ public class Person extends ACustomer implements IPerson {
 	}
 
 	@Override
-	public void sendEmailToCustomer(double amount) {
-		if (amount > 500 || getAccount().getCurrentBalance() < 0) {
-			System.out.println(String.format("Email to %s", getName()));
-		}
+	public void addCustomer(ICustomer customer) {
 	}
 
+	@Override
+	public void removeCustomer(ICustomer customer) {
+	}
+
+	@Override
+	public void sendEmailToCustomer() {
+		System.out.println(String.format("Email to %s", this.getName()));
+	}
+
+	@Override
+	public String getInitial() {
+		return "P";
+	}
 }

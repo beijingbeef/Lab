@@ -2,23 +2,23 @@ package com.asd.framework;
 
 public interface IAccount {
 
+	public double getCurrentBalance();
+
 	public void addAccount(IAccount account);
 
-	public void addEntry(IEntry entry);
-
-	public void notifyCustomer(double amount);
-
-	public void addInterest();
-
-	public String getType();
-
-	public IAccount getAccount(int index);
-
-	public void setCustomer(ICustomer c);
+	public void removeAccount(IAccount account);
 
 	public ICustomer getCustomer();
 
-	public double getCurrentBalance();
+	public void setCustomer(ICustomer c);
+
+	public void addEntry(IEntry entry);
+
+	public void notifyCustomer();
+
+	public void addInterest();
+
+	public String getInitial();
 
 	public double getLastMonthBalance();
 
