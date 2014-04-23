@@ -12,6 +12,7 @@ import com.asd.bankapplication.CheckingAccount;
 import com.asd.bankapplication.SavingAccount;
 import com.asd.framework.AddAccountCmd;
 import com.asd.framework.AddCustomerCmd;
+import com.asd.framework.AddInterestCmd;
 import com.asd.framework.CmdMgr;
 import com.asd.framework.Company;
 import com.asd.framework.Customers;
@@ -211,7 +212,8 @@ public class BankMainFrame extends MainFrame {
 		int size = customers.getSize();
 		for (int i = 0; i < size; i++) {
 			ICustomer customer = customers.getCustomer(i);
-			customer.getAccount().addInterest();
+			ICommand cmd = new AddInterestCmd(customer.getAccount());
+			cmdmgr.submit(cmd);
 			updateRowData(i, parseCustomer(customer));
 		}
 	}
