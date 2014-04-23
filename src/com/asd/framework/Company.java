@@ -27,7 +27,7 @@ public class Company extends ACustomer implements ICompany {
 
 	@Override
 	public int count() {
-		return nr_of_employee;
+		return customers.size();
 	}
 
 	@Override
