@@ -212,5 +212,41 @@ public class CreditMainFrame extends MainFrame {
 		}
 		return index;
 	}
+	
+	public void makeTestData(String type,String name,String street,String city,String state,String zip,String email,String cc_number,String exp){
+		
+		SimpleDateFormat sdf = new SimpleDateFormat("MM/yy");
+		Date expDate = null;
+		try {
+			expDate = sdf.parse(exp);
+		} catch (ParseException e1) {
+			System.out.println("Wrong Date Formate " + exp);
+		}
+		ICustomer customer = new Customer(name, street, city, state,
+				Integer.parseInt(zip), email);
+		IAccount account = null;
+		if (type.equals("Gold")) {
+			account = new GoldAccount(cc_number, expDate);
+		} else if (type.equals("Silver")) {
+			account = new SilverAccount(cc_number, expDate);
+		} else if (type.equals("Bronze")) {
+			account = new BronzeAccount(cc_number, expDate);
+		}
+		
+		ICommand cmd = new AddCustomerCmd(customers, customer);
+		cmdmgr.submit(cmd);
+		
+		cmd = new AddAccountCmd(customer, account);
+		cmdmgr.submit(cmd);
+
+		addTableRowData(parseCustomer(customer));
+	}
+	
+	public void loadTestData(){
+		makeTestData("Gold","tom","1000 N 4th St","Fairfield","IA","52557","tom@mum.edu","1212 3333","10/17");
+		makeTestData("Gold","aphiwad","1000 N 4th St","Fairfield","IA","52557","aphiwad@mum.edu","1212 4444","10/15");
+		makeTestData("Silver","hongming","1000 N 4th St","Fairfield","IA","52557","hongming@mum.edu","1212 5555","10/20");
+		makeTestData("Bronze","va","1000 N 4th St","Fairfield","IA","52557","va@mum.edu","1212 5555","10/16");
+	}
 
 }

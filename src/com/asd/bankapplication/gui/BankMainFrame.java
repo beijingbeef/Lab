@@ -64,11 +64,11 @@ public class BankMainFrame extends MainFrame {
 		String city = data.get("City");
 		String state = data.get("State");
 		String zip = data.get("Zip");
-		String birthdaty = data.get("Birthday");
+		String birthday = data.get("Birthday");
 		String email = data.get("Email");
 
 		ICustomer customer = new Person(name, street, city, state,
-				Integer.parseInt(zip), birthdaty, email);
+				Integer.parseInt(zip), birthday, email);
 
 		IAccount account = null;
 		if ("chekings".equals(type)) {
@@ -243,5 +243,54 @@ public class BankMainFrame extends MainFrame {
 			}
 		}
 		return index;
+	}
+	
+	public void makePersonalTestData(String type,String name,String street,String city,String state,String zip,String email,String birthday){
+		ICustomer customer = new Person(name, street, city, state,
+				Integer.parseInt(zip), birthday, email);
+
+		IAccount account = null;
+		if ("chekings".equals(type)) {
+			account = new CheckingAccount();
+		} else {
+			account = new SavingAccount();
+		}
+		
+		ICommand cmd = new AddCustomerCmd(customers, customer);
+		cmdmgr.submit(cmd);
+
+		cmd = new AddAccountCmd(customer, account);
+		cmdmgr.submit(cmd);
+
+		addTableRowData(parseCustomer(customer));
+	}
+	
+	public void makeCompanyTestData(String type,String name,String street,String city,String state,String zip,String email,String NOE){
+		ICustomer customer = new Company(name, street, city, state,
+				Integer.parseInt(zip), Integer.parseInt(NOE), email);
+
+		IAccount account = null;
+		if ("chekings".equals(type)) {
+			account = new CheckingAccount();
+		} else {
+			account = new SavingAccount();
+		}
+		
+		ICommand cmd = new AddCustomerCmd(customers, customer);
+		cmdmgr.submit(cmd);
+
+		cmd = new AddAccountCmd(customer, account);
+		cmdmgr.submit(cmd);
+
+		addTableRowData(parseCustomer(customer));
+	}
+	
+	public void loadTestData(){
+		makePersonalTestData("checkings","hongming","1000 N 4th St","Fairfield","IA","52557","hongming@mum.edu","01/01/1988");
+		makePersonalTestData("savings","va","1000 N 4th St","Fairfield","IA","52557","aphiwad@mum.edu","01/01/1988");
+		makePersonalTestData("checkings","aphiwad","1000 N 4th St","Fairfield","IA","52557","va@mum.edu","01/01/1988");
+		
+		makeCompanyTestData("checkings","google","1000 N 4th St","Fairfield","IA","52557","google@mum.edu","10");
+		makeCompanyTestData("checkings","facebook","1000 N 4th St","Fairfield","IA","52557","facebook@mum.edu","10");
 	}
 }

@@ -26,6 +26,8 @@ public class BankGuiFactory extends GUIFactory {
 		MainFrame frame = new BankMainFrame("Bank Application","Add personal account","Add company account","Deposit","Withdraw");
 		String[] header = {"Name","Street","City","State","Zip","P/C","Ch/S","Amount"};
 		frame.setTableHeader(header);
+		//for test
+		((BankMainFrame)frame).loadTestData();
 		return frame;
 	}
 

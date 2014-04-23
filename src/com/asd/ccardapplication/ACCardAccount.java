@@ -50,7 +50,14 @@ public abstract class ACCardAccount extends AAccount {
 
 	@Override
 	public double getLastMonthBalance() {
-		return this.last_month_balance;
+		Date now = new Date();
+		double total = 0;
+		for (IEntry e : this.entries) {
+			if (e.getDate().getMonth() == now.getMonth() -1) {
+				total += e.getAmount();
+			}
+		}
+		return total;
 	}
 
 	@Override
@@ -73,7 +80,7 @@ public abstract class ACCardAccount extends AAccount {
 		for (IEntry e : this.entries) {
 			if (e.getDate().getMonth() == now.getMonth()
 					&& e.getTransactionType() == TransactionType.withdraw) {
-				total += e.getAmount();
+				total += e.getAmount() * -1;
 			}
 		}
 		return total;
@@ -85,7 +92,7 @@ public abstract class ACCardAccount extends AAccount {
 		double totalCredit = getTotalMonthlyCredit();
 		double totalCharge = getTotalMonthlyCharge();
 		double newBal = lastBal - totalCredit + totalCharge
-				+ (this.monthly_interest * (lastBal - totalCredit));
+				+ this.monthly_interest * (lastBal - totalCredit);
 
 		return newBal;
 	}
@@ -111,11 +118,9 @@ public abstract class ACCardAccount extends AAccount {
 		strBuilder.append(String.format("Total charges= %.2f\n",
 				getTotalMonthlyCharge()));
 		strBuilder.append(String.format("New balance= %.2f\n",
-				getCurrentBalance()));
+				getNewMonthlyBalance()));
 		strBuilder.append(String.format("Total amount due= %.2f\n",
 				getMonthlyAmountDue()));
-
-		this.last_month_balance = getNewMonthlyBalance();
 
 		return strBuilder.toString();
 	}
