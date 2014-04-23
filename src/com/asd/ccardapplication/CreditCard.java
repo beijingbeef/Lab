@@ -58,6 +58,9 @@ public class CreditCard extends Application {
 				String cc_number = data.get("CC Number");
 				String exp = data.get("Exp. Date");
 
+				String tmp[] = exp.split("/");
+				exp = tmp[0] + "/20" +tmp[1];
+				
 				SimpleDateFormat sdf = new SimpleDateFormat("MM/yy");
 
 				Date expDate = null;
