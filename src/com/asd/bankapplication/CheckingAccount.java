@@ -3,6 +3,7 @@ package com.asd.bankapplication;
 import com.asd.framework.AAccount;
 import com.asd.framework.Entry;
 import com.asd.framework.IAccount;
+import com.asd.framework.IEntry;
 import com.asd.framework.TransactionType;
 
 public class CheckingAccount extends AAccount {
@@ -20,6 +21,14 @@ public class CheckingAccount extends AAccount {
 
 	@Override
 	public void removeAccount(IAccount account) {
+	}
+
+	@Override
+	public void addEntry(IEntry entry) {
+		if (entry.getAmount() > 0
+				|| (entry.getAmount() < 0 && (entry.getAmount() * -1) <= this.current_balance)) {
+			super.addEntry(entry);
+		}
 	}
 
 	@Override
