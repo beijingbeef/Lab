@@ -12,7 +12,7 @@ public class SavingAccount extends AAccount {
 	@Override
 	public void addInterest() {
 		double interest = getCurrentBalance() * this.interest_rate;
-		addEntry(new Entry(TransactionType.interest, interest));
+		addEntry(new Entry(TransactionType.INTEREST, interest));
 	}
 
 	@Override

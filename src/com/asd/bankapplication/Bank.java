@@ -266,10 +266,10 @@ public class Bank extends Application {
 		makePersonalTestData("checkings", "aphiwad", "1000 N 4th St",
 				"Fairfield", "IA", "52557", "va@mum.edu", "01/01/1988");
 
-		makeCompanyTestData("checkings", "google", "1000 N 4th St",
-				"Fairfield", "IA", "52557", "google@mum.edu", "10");
-		makeCompanyTestData("checkings", "facebook", "1000 N 4th St",
-				"Fairfield", "IA", "52557", "facebook@mum.edu", "10");
+//		makeCompanyTestData("checkings", "google", "1000 N 4th St",
+//				"Fairfield", "IA", "52557", "google@mum.edu", "10");
+//		makeCompanyTestData("checkings", "facebook", "1000 N 4th St",
+//				"Fairfield", "IA", "52557", "facebook@mum.edu", "10");
 	}
 
 	public static void main(String[] args) {

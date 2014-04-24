@@ -67,7 +67,7 @@ public abstract class ACCardAccount extends AAccount {
 		double total = 0;
 		for (IEntry e : this.entries) {
 			if (e.getDate().getMonth() == now.getMonth()
-					&& e.getTransactionType() == TransactionType.deposit) {
+					&& e.getTransactionType() == TransactionType.DEPOSIT) {
 				total += e.getAmount();
 			}
 		}
@@ -80,7 +80,7 @@ public abstract class ACCardAccount extends AAccount {
 		double total = 0;
 		for (IEntry e : this.entries) {
 			if (e.getDate().getMonth() == now.getMonth()
-					&& e.getTransactionType() == TransactionType.withdraw) {
+					&& e.getTransactionType() == TransactionType.WITHDRAW) {
 				total += e.getAmount() * -1;
 			}
 		}
