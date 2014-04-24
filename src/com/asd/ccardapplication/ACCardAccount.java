@@ -6,7 +6,12 @@ import com.asd.framework.AAccount;
 import com.asd.framework.IAccount;
 import com.asd.framework.ICustomer;
 import com.asd.framework.IEntry;
-import com.asd.framework.TransactionType;
+import com.asd.framework.IFunctor;
+import com.asd.framework.IPredicate;
+import com.asd.framework.LastMonthPredicate;
+import com.asd.framework.MonthlyChargePredicate;
+import com.asd.framework.MonthlyCreditPredicate;
+import com.asd.framework.SumFunctor;
 
 public abstract class ACCardAccount extends AAccount {
 	protected double monthly_interest = 0.0;
@@ -51,40 +56,26 @@ public abstract class ACCardAccount extends AAccount {
 
 	@Override
 	public double getLastMonthBalance() {
-		Date now = new Date();
-		double total = 0;
-		for (IEntry e : this.entries) {
-			if (e.getDate().getMonth() == now.getMonth() - 1) {
-				total += e.getAmount();
-			}
-		}
-		return total;
+		IPredicate p = new LastMonthPredicate();
+		IFunctor f = new SumFunctor();
+		this.entries.doAll(p, f);
+		return f.getValue();
 	}
 
 	@Override
 	public double getTotalMonthlyCredit() {
-		Date now = new Date();
-		double total = 0;
-		for (IEntry e : this.entries) {
-			if (e.getDate().getMonth() == now.getMonth()
-					&& e.getTransactionType() == TransactionType.DEPOSIT) {
-				total += e.getAmount();
-			}
-		}
-		return total;
+		IPredicate p = new MonthlyCreditPredicate();
+		IFunctor f = new SumFunctor();
+		this.entries.doAll(p, f);
+		return f.getValue();
 	}
 
 	@Override
 	public double getTotalMonthlyCharge() {
-		Date now = new Date();
-		double total = 0;
-		for (IEntry e : this.entries) {
-			if (e.getDate().getMonth() == now.getMonth()
-					&& e.getTransactionType() == TransactionType.WITHDRAW) {
-				total += e.getAmount() * -1;
-			}
-		}
-		return total;
+		IPredicate p = new MonthlyChargePredicate();
+		IFunctor f = new SumFunctor();
+		this.entries.doAll(p, f);
+		return f.getValue() * -1;
 	}
 
 	@Override

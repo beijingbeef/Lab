@@ -1,12 +1,10 @@
 package com.asd.framework;
 
-import java.util.ArrayList;
-
 public abstract class AAccount implements IAccount {
 	protected String accnr;
 	protected double current_balance;
 	protected ICustomer customer;
-	protected ArrayList<IEntry> entries = new ArrayList<>();
+	protected Entries entries = new Entries();
 
 	@Override
 	public double getCurrentBalance() {
