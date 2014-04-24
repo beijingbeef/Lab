@@ -8,10 +8,6 @@ import com.asd.framework.ICustomer;
 import com.asd.framework.IEntry;
 import com.asd.framework.IFunctor;
 import com.asd.framework.IPredicate;
-import com.asd.framework.LastMonthPredicate;
-import com.asd.framework.MonthlyChargePredicate;
-import com.asd.framework.MonthlyCreditPredicate;
-import com.asd.framework.SumFunctor;
 
 public abstract class ACCardAccount extends AAccount {
 	protected double monthly_interest = 0.0;

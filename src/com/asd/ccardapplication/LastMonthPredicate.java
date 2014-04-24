@@ -1,6 +1,9 @@
-package com.asd.framework;
+package com.asd.ccardapplication;
 
 import java.util.Date;
+
+import com.asd.framework.IEntry;
+import com.asd.framework.IPredicate;
 
 public class LastMonthPredicate implements IPredicate {
 
