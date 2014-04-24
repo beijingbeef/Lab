@@ -275,6 +275,7 @@ public class Bank extends Application {
 	public static void main(String[] args) {
 
 		GUIFactory guiFactory = BankGuiFactory.createInstance();
+		
 		Bank bank = new Bank();
 		bank.setGUIFactory(guiFactory);
 		bank.run();
